@@ -1,0 +1,1384 @@
+[
+ {
+  "id": "summer-slope-sea",
+  "name": "坡道盡頭的海",
+  "intent": "下坡路筆直通向海，積雨雲高高堆在海平線上，電線把天空切開。畫面的盡頭就是出發的方向。",
+  "moods": [
+   "dream",
+   "departure",
+   "everyday"
+  ],
+  "seasons": [
+   "summer"
+  ],
+  "time": [
+   "day",
+   "dusk"
+  ],
+  "layers": [
+   {
+    "asset": "cloud-cirrus-01",
+    "x": 0.4,
+    "y": 0.24,
+    "width": 0.9,
+    "opacity": 0.7
+   },
+   {
+    "asset": "sun-01",
+    "x": [
+     0.78,
+     0.86
+    ],
+    "y": 0.16,
+    "width": 0.62,
+    "only": "day"
+   },
+   {
+    "asset": "contrail-01",
+    "x": [
+     0.32,
+     0.4
+    ],
+    "y": 0.3,
+    "width": 0.7,
+    "only": "day"
+   },
+   {
+    "asset": "cloud-cumulus-01",
+    "x": [
+     0.42,
+     0.52
+    ],
+    "y": 0.4,
+    "width": 0.86,
+    "scale": [
+     0.95,
+     1.05
+    ]
+   },
+   {
+    "asset": "cloud-cumulus-02",
+    "x": 0.84,
+    "y": 0.585,
+    "width": 0.6,
+    "opacity": 0.9
+   },
+   {
+    "asset": "sea-horizon-01",
+    "x": 0.5,
+    "y": 0.76,
+    "width": 1.3
+   },
+   {
+    "asset": "haze-01",
+    "x": 0.5,
+    "y": 0.62,
+    "width": 1.3,
+    "opacity": 0.8
+   },
+   {
+    "asset": "town-far-01",
+    "x": 0.78,
+    "y": 0.715,
+    "width": 0.7
+   },
+   {
+    "asset": "houses-01",
+    "x": 0.84,
+    "y": 0.79,
+    "width": 0.66
+   },
+   {
+    "asset": "ground-field-01",
+    "x": 0.5,
+    "y": 1.02,
+    "width": 1.3
+   },
+   {
+    "asset": "trees-01",
+    "x": 0.1,
+    "y": 0.78,
+    "width": 0.62
+   },
+   {
+    "asset": "road-slope-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 1
+   },
+   {
+    "asset": "pole-wire-01",
+    "x": [
+     0.45,
+     0.5
+    ],
+    "y": 1,
+    "width": 1.04
+   }
+  ]
+ },
+ {
+  "id": "magic-hour-station",
+  "name": "魔幻時刻的小站",
+  "intent": "日落後的小站，地平線還留著橘粉色的餘光，鐵軌把光一路帶向遠方，月台上只亮著一盞燈。",
+  "moods": [
+   "longing",
+   "farewell"
+  ],
+  "seasons": [
+   "spring",
+   "summer",
+   "autumn",
+   "winter"
+  ],
+  "time": [
+   "dusk",
+   "night"
+  ],
+  "layers": [
+   {
+    "asset": "milkyway-01",
+    "x": 0.5,
+    "y": 0.32,
+    "width": 1.25,
+    "opacity": 0.8,
+    "only": "night"
+   },
+   {
+    "asset": "stars-01",
+    "x": 0.5,
+    "y": 0.3,
+    "width": 1,
+    "only": "night"
+   },
+   {
+    "asset": "meteor-01",
+    "x": [
+     0.66,
+     0.8
+    ],
+    "y": 0.15,
+    "width": 0.3,
+    "only": "night"
+   },
+   {
+    "asset": "cloud-stratus-01",
+    "x": 0.5,
+    "y": 0.56,
+    "width": 1.25,
+    "opacity": 0.9
+   },
+   {
+    "asset": "mountains-01",
+    "x": 0.5,
+    "y": 0.665,
+    "width": 1.3
+   },
+   {
+    "asset": "ground-field-01",
+    "x": 0.5,
+    "y": 1.065,
+    "width": 1.3,
+    "scale": 1.6
+   },
+   {
+    "asset": "rails-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 1
+   },
+   {
+    "asset": "pole-wire-01",
+    "x": 0.7,
+    "y": 0.86,
+    "width": 0.55
+   },
+   {
+    "asset": "platform-01",
+    "x": 0.3,
+    "y": 1,
+    "width": 0.88
+   },
+   {
+    "asset": "glow-warm-01",
+    "x": 0.14,
+    "y": 0.66,
+    "width": 0.7,
+    "only": [
+     "dusk",
+     "night"
+    ]
+   },
+   {
+    "asset": "streetlamp-01",
+    "x": 0.2,
+    "y": 0.88,
+    "width": 0.22
+   },
+   {
+    "asset": "bench-01",
+    "x": 0.32,
+    "y": 0.86,
+    "width": 0.2
+   }
+  ]
+ },
+ {
+  "id": "summer-crossing",
+  "name": "夏日平交道",
+  "intent": "積雨雲壓在遠方住宅區上，平交道柵欄放下、警示燈閃著，電線把天空切成幾塊。",
+  "moods": [
+   "dream",
+   "perseverance"
+  ],
+  "seasons": [
+   "summer"
+  ],
+  "time": [
+   "day",
+   "dusk"
+  ],
+  "layers": [
+   {
+    "asset": "cloud-cirrus-01",
+    "x": 0.3,
+    "y": 0.22,
+    "width": 0.8,
+    "opacity": 0.6
+   },
+   {
+    "asset": "cloud-cumulus-01",
+    "x": [
+     0.55,
+     0.7
+    ],
+    "y": 0.42,
+    "width": 0.9
+   },
+   {
+    "asset": "town-far-01",
+    "x": 0.5,
+    "y": 0.745,
+    "width": 1.3
+   },
+   {
+    "asset": "houses-01",
+    "x": 0.3,
+    "y": 0.77,
+    "width": 0.72,
+    "flip": "random"
+   },
+   {
+    "asset": "ground-field-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 1.3
+   },
+   {
+    "asset": "tracks-side-01",
+    "x": 0.5,
+    "y": 0.87,
+    "width": 1.3
+   },
+   {
+    "asset": "crossing-01",
+    "x": [
+     0.28,
+     0.36
+    ],
+    "y": 0.875,
+    "width": 0.38
+   },
+   {
+    "asset": "pole-wire-01",
+    "x": [
+     0.4,
+     0.44
+    ],
+    "y": 1,
+    "width": 1.04
+   }
+  ]
+ },
+ {
+  "id": "morning-platform",
+  "name": "清晨月台",
+  "intent": "清晨低角度的陽光照進空月台，軌道筆直延伸到遠山，第一班車還沒來。",
+  "moods": [
+   "departure",
+   "farewell"
+  ],
+  "seasons": [
+   "spring",
+   "autumn",
+   "winter"
+  ],
+  "time": [
+   "day"
+  ],
+  "layers": [
+   {
+    "asset": "sun-01",
+    "x": 0.74,
+    "y": 0.52,
+    "width": 0.7
+   },
+   {
+    "asset": "cloud-cumulus-02",
+    "x": 0.3,
+    "y": 0.54,
+    "width": 0.8,
+    "opacity": 0.7
+   },
+   {
+    "asset": "mountains-01",
+    "x": 0.5,
+    "y": 0.665,
+    "width": 1.3
+   },
+   {
+    "asset": "haze-01",
+    "x": 0.5,
+    "y": 0.63,
+    "width": 1.3,
+    "opacity": 0.7
+   },
+   {
+    "asset": "ground-field-01",
+    "x": 0.5,
+    "y": 1.065,
+    "width": 1.3,
+    "scale": 1.6
+   },
+   {
+    "asset": "rails-01",
+    "x": 0.56,
+    "y": 1,
+    "width": 1
+   },
+   {
+    "asset": "platform-01",
+    "x": 0.36,
+    "y": 1,
+    "width": 1
+   },
+   {
+    "asset": "bench-01",
+    "x": 0.2,
+    "y": 0.9,
+    "width": 0.24
+   }
+  ]
+ },
+ {
+  "id": "snow-lamp",
+  "name": "雪夜路燈",
+  "intent": "滿月下的雪夜，一盞路燈照亮地上的一小圈雪，遠處住宅的窗還亮著。",
+  "moods": [
+   "solitude",
+   "longing"
+  ],
+  "seasons": [
+   "winter"
+  ],
+  "time": [
+   "night"
+  ],
+  "layers": [
+   {
+    "asset": "stars-01",
+    "x": 0.5,
+    "y": 0.3,
+    "width": 1,
+    "opacity": 0.5
+   },
+   {
+    "asset": "moon-full-01",
+    "x": [
+     0.72,
+     0.82
+    ],
+    "y": 0.22,
+    "width": 0.46
+   },
+   {
+    "asset": "mountains-01",
+    "x": 0.5,
+    "y": 0.69,
+    "width": 1.3,
+    "opacity": 0.8
+   },
+   {
+    "asset": "town-far-01",
+    "x": 0.5,
+    "y": 0.73,
+    "width": 1.3
+   },
+   {
+    "asset": "ground-snow-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 1.3
+   },
+   {
+    "asset": "pole-wire-01",
+    "x": 0.51,
+    "y": 0.96,
+    "width": 1,
+    "flip": "x"
+   },
+   {
+    "asset": "glow-warm-01",
+    "x": 0.6,
+    "y": 0.62,
+    "width": 0.9
+   },
+   {
+    "asset": "streetlamp-01",
+    "x": 0.68,
+    "y": 0.97,
+    "width": 0.3
+   },
+   {
+    "asset": "snow-01",
+    "x": 0.5,
+    "y": 0.6,
+    "width": 1
+   }
+  ]
+ },
+ {
+  "id": "vending-night",
+  "name": "販賣機的光",
+  "intent": "住宅區的夜路，只有自動販賣機亮著暖光，像是替晚歸的人留的一盞燈。",
+  "moods": [
+   "everyday",
+   "kindness",
+   "solitude"
+  ],
+  "seasons": [
+   "spring",
+   "summer",
+   "autumn",
+   "winter"
+  ],
+  "time": [
+   "night",
+   "rain"
+  ],
+  "layers": [
+   {
+    "asset": "stars-01",
+    "x": 0.5,
+    "y": 0.28,
+    "width": 1,
+    "opacity": 0.6,
+    "only": "night"
+   },
+   {
+    "asset": "moon-crescent-01",
+    "x": 0.78,
+    "y": 0.2,
+    "width": 0.3,
+    "only": "night"
+   },
+   {
+    "asset": "cloud-stratus-01",
+    "x": 0.5,
+    "y": 0.35,
+    "width": 1.4,
+    "only": "rain"
+   },
+   {
+    "asset": "houses-01",
+    "x": 0.5,
+    "y": 0.75,
+    "width": 1.2
+   },
+   {
+    "asset": "pole-wire-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 1.04,
+    "flip": "x"
+   },
+   {
+    "asset": "ground-street-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 1.3
+   },
+   {
+    "asset": "glow-warm-01",
+    "x": 0.64,
+    "y": 0.8,
+    "width": 1
+   },
+   {
+    "asset": "vending-machine-01",
+    "x": 0.64,
+    "y": 0.92,
+    "width": 0.3
+   },
+   {
+    "asset": "rain-01",
+    "x": 0.5,
+    "y": 0.5,
+    "width": 1,
+    "only": "rain"
+   }
+  ]
+ },
+ {
+  "id": "seawall-horizon",
+  "name": "堤防與海平線",
+  "intent": "堤防上停著一輛腳踏車，旁邊並排兩罐飲料，眼前是一整片海和雲。",
+  "moods": [
+   "acceptance",
+   "friendship"
+  ],
+  "seasons": [
+   "summer",
+   "autumn"
+  ],
+  "time": [
+   "day",
+   "dusk"
+  ],
+  "layers": [
+   {
+    "asset": "cloud-cirrus-01",
+    "x": 0.3,
+    "y": 0.24,
+    "width": 0.8,
+    "opacity": 0.6
+   },
+   {
+    "asset": "cloud-cumulus-01",
+    "x": [
+     0.66,
+     0.74
+    ],
+    "y": 0.44,
+    "width": 0.76
+   },
+   {
+    "asset": "sea-horizon-01",
+    "x": 0.5,
+    "y": 0.83,
+    "width": 1.3
+   },
+   {
+    "asset": "haze-01",
+    "x": 0.5,
+    "y": 0.665,
+    "width": 1.3,
+    "opacity": 0.7
+   },
+   {
+    "asset": "embankment-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 1.3
+   },
+   {
+    "asset": "cans-01",
+    "x": 0.52,
+    "y": 0.8,
+    "width": 0.09
+   },
+   {
+    "asset": "bicycle-01",
+    "x": [
+     0.72,
+     0.78
+    ],
+    "y": 0.795,
+    "width": 0.26,
+    "flip": "random"
+   }
+  ]
+ },
+ {
+  "id": "star-poles",
+  "name": "星空電線桿",
+  "intent": "郊外的夜，銀河斜斜掛在天上，一顆流星劃過，兩根電線桿把星空分成幾段。",
+  "moods": [
+   "dream",
+   "longing",
+   "solitude"
+  ],
+  "seasons": [
+   "summer",
+   "autumn",
+   "winter"
+  ],
+  "time": [
+   "night"
+  ],
+  "layers": [
+   {
+    "asset": "milkyway-01",
+    "x": 0.5,
+    "y": 0.34,
+    "width": 1.3
+   },
+   {
+    "asset": "stars-01",
+    "x": 0.5,
+    "y": 0.3,
+    "width": 1
+   },
+   {
+    "asset": "meteor-01",
+    "x": [
+     0.6,
+     0.8
+    ],
+    "y": 0.15,
+    "width": 0.3
+   },
+   {
+    "asset": "mountains-01",
+    "x": 0.5,
+    "y": 0.67,
+    "width": 1.3,
+    "opacity": 0.75
+   },
+   {
+    "asset": "town-far-01",
+    "x": 0.5,
+    "y": 0.68,
+    "width": 1.3
+   },
+   {
+    "asset": "ground-field-01",
+    "x": 0.5,
+    "y": 1.095,
+    "width": 1.3,
+    "scale": 1.6
+   },
+   {
+    "asset": "pole-wire-01",
+    "x": 0.54,
+    "y": 0.9,
+    "width": 0.7
+   },
+   {
+    "asset": "pole-wire-01",
+    "x": 0.58,
+    "y": 1,
+    "width": 1.04,
+    "flip": "x"
+   }
+  ]
+ },
+ {
+  "id": "sakura-riverbank",
+  "name": "河堤櫻花",
+  "intent": "河堤上的櫻花枝從畫面邊緣伸進來，花瓣被風帶過橋與遠方的城市。",
+  "moods": [
+   "farewell",
+   "growth",
+   "departure"
+  ],
+  "seasons": [
+   "spring"
+  ],
+  "time": [
+   "day",
+   "dusk"
+  ],
+  "layers": [
+   {
+    "asset": "cloud-cumulus-02",
+    "x": 0.5,
+    "y": 0.5,
+    "width": 1,
+    "opacity": 0.8
+   },
+   {
+    "asset": "city-far-01",
+    "x": 0.5,
+    "y": 0.67,
+    "width": 1.3,
+    "opacity": 0.85
+   },
+   {
+    "asset": "haze-01",
+    "x": 0.5,
+    "y": 0.64,
+    "width": 1.3,
+    "opacity": 0.6
+   },
+   {
+    "asset": "bridge-01",
+    "x": 0.5,
+    "y": 0.79,
+    "width": 1.3
+   },
+   {
+    "asset": "embankment-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 1.3
+   },
+   {
+    "asset": "sakura-branch-01",
+    "x": 0.74,
+    "y": 0.3,
+    "width": 0.72,
+    "flip": "x"
+   },
+   {
+    "asset": "petals-sakura-01",
+    "x": 0.5,
+    "y": 0.58,
+    "width": 1
+   }
+  ]
+ },
+ {
+  "id": "rooftop",
+  "name": "屋頂天台",
+  "intent": "學校屋頂的鐵絲網外是一整片天空和城市，飛機雲剛劃過，欄杆邊放著兩罐飲料。",
+  "moods": [
+   "friendship",
+   "dream",
+   "courage"
+  ],
+  "seasons": [
+   "spring",
+   "summer",
+   "autumn"
+  ],
+  "time": [
+   "day",
+   "dusk"
+  ],
+  "layers": [
+   {
+    "asset": "contrail-01",
+    "x": 0.45,
+    "y": 0.27,
+    "width": 0.8,
+    "only": "day"
+   },
+   {
+    "asset": "cloud-cumulus-01",
+    "x": [
+     0.3,
+     0.4
+    ],
+    "y": 0.44,
+    "width": 0.8
+   },
+   {
+    "asset": "city-far-01",
+    "x": 0.5,
+    "y": 0.78,
+    "width": 1.3
+   },
+   {
+    "asset": "haze-01",
+    "x": 0.5,
+    "y": 0.7,
+    "width": 1.3,
+    "opacity": 0.6
+   },
+   {
+    "asset": "railing-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 1.3
+   },
+   {
+    "asset": "cans-01",
+    "x": 0.66,
+    "y": 0.94,
+    "width": 0.1
+   }
+  ]
+ },
+ {
+  "id": "empty-classroom",
+  "name": "空教室的窗",
+  "intent": "放學後的教室，窗簾被風吹起，陽光斜斜落在課桌上，窗外是城鎮和天空。",
+  "moods": [
+   "solitude",
+   "growth",
+   "farewell"
+  ],
+  "seasons": [
+   "spring",
+   "summer",
+   "autumn",
+   "winter"
+  ],
+  "time": [
+   "day",
+   "dusk",
+   "rain"
+  ],
+  "layers": [
+   {
+    "asset": "cloud-cumulus-02",
+    "x": 0.5,
+    "y": 0.42,
+    "width": 1,
+    "opacity": 0.9
+   },
+   {
+    "asset": "cloud-stratus-01",
+    "x": 0.5,
+    "y": 0.28,
+    "width": 1.3,
+    "only": "rain"
+   },
+   {
+    "asset": "town-far-01",
+    "x": 0.5,
+    "y": 0.62,
+    "width": 1.3
+   },
+   {
+    "asset": "school-01",
+    "x": 0.6,
+    "y": 0.72,
+    "width": 1.1,
+    "opacity": 0.9
+   },
+   {
+    "asset": "rain-01",
+    "x": 0.5,
+    "y": 0.45,
+    "width": 1,
+    "only": "rain"
+   },
+   {
+    "asset": "window-frame-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 1
+   }
+  ]
+ },
+ {
+  "id": "storm-light",
+  "name": "雲縫光束",
+  "intent": "暴風雨前後的厚雲裂開一道縫，光束直直打在原野上，遠方電線桿很小。",
+  "moods": [
+   "courage",
+   "perseverance"
+  ],
+  "seasons": [
+   "summer",
+   "autumn"
+  ],
+  "time": [
+   "day",
+   "rain"
+  ],
+  "layers": [
+   {
+    "asset": "cloud-stratus-01",
+    "x": 0.5,
+    "y": 0.22,
+    "width": 1.4
+   },
+   {
+    "asset": "cloud-cumulus-02",
+    "x": 0.5,
+    "y": 0.4,
+    "width": 1.3
+   },
+   {
+    "asset": "light-rays-01",
+    "x": [
+     0.45,
+     0.6
+    ],
+    "y": 0.52,
+    "width": 0.9,
+    "opacity": 0.85
+   },
+   {
+    "asset": "mountains-01",
+    "x": 0.5,
+    "y": 0.7,
+    "width": 1.3
+   },
+   {
+    "asset": "ground-field-01",
+    "x": 0.5,
+    "y": 1.12,
+    "width": 1.3,
+    "scale": 1.6
+   },
+   {
+    "asset": "pole-wire-01",
+    "x": 0.64,
+    "y": 0.9,
+    "width": 0.56
+   }
+  ]
+ },
+ {
+  "id": "rain-bench",
+  "name": "雨中的長椅",
+  "intent": "下雨的街角，長椅上留著一把透明傘，路燈在雨絲裡暈開。",
+  "moods": [
+   "kindness",
+   "perseverance"
+  ],
+  "seasons": [
+   "spring",
+   "summer",
+   "autumn"
+  ],
+  "time": [
+   "rain"
+  ],
+  "layers": [
+   {
+    "asset": "cloud-stratus-01",
+    "x": 0.5,
+    "y": 0.3,
+    "width": 1.4
+   },
+   {
+    "asset": "houses-01",
+    "x": 0.5,
+    "y": 0.75,
+    "width": 1.2
+   },
+   {
+    "asset": "ground-street-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 1.3
+   },
+   {
+    "asset": "glow-warm-01",
+    "x": 0.76,
+    "y": 0.62,
+    "width": 0.7
+   },
+   {
+    "asset": "streetlamp-01",
+    "x": 0.82,
+    "y": 0.98,
+    "width": 0.26
+   },
+   {
+    "asset": "bench-01",
+    "x": 0.44,
+    "y": 0.91,
+    "width": 0.34
+   },
+   {
+    "asset": "umbrella-01",
+    "x": 0.58,
+    "y": 0.9,
+    "width": 0.2
+   },
+   {
+    "asset": "rain-01",
+    "x": 0.5,
+    "y": 0.5,
+    "width": 1
+   }
+  ]
+ },
+ {
+  "id": "sunflower-field",
+  "name": "向日葵與積雨雲",
+  "intent": "向日葵田迎著正午的太陽，積雨雲在遠山上長得比什麼都高。",
+  "moods": [
+   "growth",
+   "dream",
+   "courage"
+  ],
+  "seasons": [
+   "summer"
+  ],
+  "time": [
+   "day"
+  ],
+  "layers": [
+   {
+    "asset": "sun-01",
+    "x": 0.8,
+    "y": 0.15,
+    "width": 0.6
+   },
+   {
+    "asset": "cloud-cumulus-01",
+    "x": [
+     0.4,
+     0.5
+    ],
+    "y": 0.42,
+    "width": 0.9
+   },
+   {
+    "asset": "mountains-01",
+    "x": 0.5,
+    "y": 0.67,
+    "width": 1.3,
+    "opacity": 0.7
+   },
+   {
+    "asset": "pole-wire-01",
+    "x": 0.7,
+    "y": 0.8,
+    "width": 0.5
+   },
+   {
+    "asset": "ground-field-01",
+    "x": 0.5,
+    "y": 1.105,
+    "width": 1.3,
+    "scale": 1.6
+   },
+   {
+    "asset": "sunflowers-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 1.2
+   }
+  ]
+ },
+ {
+  "id": "festival-lanterns",
+  "name": "夏日祭燈籠",
+  "intent": "祭典前後的巷口，一串燈籠亮起來，天色從橘紅轉成深藍。",
+  "moods": [
+   "everyday",
+   "friendship",
+   "longing"
+  ],
+  "seasons": [
+   "summer"
+  ],
+  "time": [
+   "dusk",
+   "night"
+  ],
+  "layers": [
+   {
+    "asset": "stars-01",
+    "x": 0.5,
+    "y": 0.28,
+    "width": 1,
+    "opacity": 0.6,
+    "only": "night"
+   },
+   {
+    "asset": "cloud-stratus-01",
+    "x": 0.5,
+    "y": 0.52,
+    "width": 1.3,
+    "only": "dusk"
+   },
+   {
+    "asset": "town-far-01",
+    "x": 0.5,
+    "y": 0.7,
+    "width": 1.3
+   },
+   {
+    "asset": "houses-01",
+    "x": 0.5,
+    "y": 0.8,
+    "width": 1.25
+   },
+   {
+    "asset": "ground-street-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 1.3
+   },
+   {
+    "asset": "glow-warm-01",
+    "x": 0.5,
+    "y": 0.58,
+    "width": 1.3,
+    "opacity": 0.5
+   },
+   {
+    "asset": "lanterns-01",
+    "x": 0.5,
+    "y": 0.44,
+    "width": 1,
+    "scale": 0.85
+   },
+   {
+    "asset": "lanterns-01",
+    "x": 0.5,
+    "y": 0.55,
+    "width": 1.25
+   }
+  ]
+ },
+ {
+  "id": "torii-autumn",
+  "name": "紅葉鳥居",
+  "intent": "山腳下的小鳥居，楓葉從畫面邊緣垂下，幾片葉子正在落。",
+  "moods": [
+   "acceptance",
+   "kindness",
+   "growth"
+  ],
+  "seasons": [
+   "autumn"
+  ],
+  "time": [
+   "day",
+   "dusk"
+  ],
+  "layers": [
+   {
+    "asset": "cloud-cirrus-01",
+    "x": 0.5,
+    "y": 0.22,
+    "width": 1,
+    "opacity": 0.7
+   },
+   {
+    "asset": "cloud-cumulus-02",
+    "x": 0.4,
+    "y": 0.55,
+    "width": 0.9,
+    "opacity": 0.7
+   },
+   {
+    "asset": "mountains-01",
+    "x": 0.5,
+    "y": 0.7,
+    "width": 1.3
+   },
+   {
+    "asset": "trees-01",
+    "x": 0.5,
+    "y": 0.83,
+    "width": 1.3
+   },
+   {
+    "asset": "ground-field-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 1.3
+   },
+   {
+    "asset": "torii-01",
+    "x": 0.5,
+    "y": 0.93,
+    "width": 0.6
+   },
+   {
+    "asset": "maple-branch-01",
+    "x": 0.26,
+    "y": 0.34,
+    "width": 0.7
+   },
+   {
+    "asset": "leaves-falling-01",
+    "x": 0.5,
+    "y": 0.6,
+    "width": 1
+   }
+  ]
+ },
+ {
+  "id": "park-swing",
+  "name": "黃昏公園鞦韆",
+  "intent": "夕陽低低掛在城市上，公園裡一架鞦韆還輕輕晃著，路燈剛要亮。",
+  "moods": [
+   "longing",
+   "everyday",
+   "acceptance"
+  ],
+  "seasons": [
+   "spring",
+   "summer",
+   "autumn",
+   "winter"
+  ],
+  "time": [
+   "dusk"
+  ],
+  "layers": [
+   {
+    "asset": "sun-01",
+    "x": 0.3,
+    "y": 0.6,
+    "width": 0.7
+   },
+   {
+    "asset": "cloud-stratus-01",
+    "x": 0.5,
+    "y": 0.5,
+    "width": 1.3
+   },
+   {
+    "asset": "city-far-01",
+    "x": 0.5,
+    "y": 0.72,
+    "width": 1.3
+   },
+   {
+    "asset": "trees-01",
+    "x": 0.82,
+    "y": 0.79,
+    "width": 0.8
+   },
+   {
+    "asset": "ground-field-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 1.3
+   },
+   {
+    "asset": "swing-01",
+    "x": 0.45,
+    "y": 0.9,
+    "width": 0.6
+   },
+   {
+    "asset": "glow-warm-01",
+    "x": 0.82,
+    "y": 0.62,
+    "width": 0.5
+   },
+   {
+    "asset": "streetlamp-01",
+    "x": 0.86,
+    "y": 0.95,
+    "width": 0.24
+   }
+  ]
+ },
+ {
+  "id": "town-evening",
+  "name": "住宅區的黃昏",
+  "intent": "放學路上的住宅區，兩輛腳踏車停在一起，家家戶戶的窗一格一格亮起來。",
+  "moods": [
+   "everyday",
+   "kindness",
+   "friendship"
+  ],
+  "seasons": [
+   "spring",
+   "summer",
+   "autumn",
+   "winter"
+  ],
+  "time": [
+   "day",
+   "dusk"
+  ],
+  "layers": [
+   {
+    "asset": "cloud-cumulus-02",
+    "x": 0.5,
+    "y": 0.5,
+    "width": 1.1
+   },
+   {
+    "asset": "town-far-01",
+    "x": 0.5,
+    "y": 0.76,
+    "width": 1.3
+   },
+   {
+    "asset": "houses-01",
+    "x": 0.5,
+    "y": 0.83,
+    "width": 1.3
+   },
+   {
+    "asset": "ground-street-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 1.3
+   },
+   {
+    "asset": "pole-wire-01",
+    "x": 0.475,
+    "y": 1,
+    "width": 1.04
+   },
+   {
+    "asset": "bicycle-01",
+    "x": 0.28,
+    "y": 0.935,
+    "width": 0.3
+   },
+   {
+    "asset": "bicycle-01",
+    "x": 0.44,
+    "y": 0.945,
+    "width": 0.3,
+    "flip": "x"
+   }
+  ]
+ },
+ {
+  "id": "after-rain-bridge",
+  "name": "雨後的橋與彩虹",
+  "intent": "雨剛停，淡淡的彩虹跨過河上的橋，河岸的草還濕著。",
+  "moods": [
+   "growth",
+   "courage",
+   "kindness"
+  ],
+  "seasons": [
+   "spring",
+   "summer"
+  ],
+  "time": [
+   "day"
+  ],
+  "layers": [
+   {
+    "asset": "cloud-cumulus-02",
+    "x": 0.5,
+    "y": 0.58,
+    "width": 1.2
+   },
+   {
+    "asset": "rainbow-01",
+    "x": 0.55,
+    "y": 0.5,
+    "width": 1.1,
+    "opacity": 0.85
+   },
+   {
+    "asset": "city-far-01",
+    "x": 0.5,
+    "y": 0.71,
+    "width": 1.3
+   },
+   {
+    "asset": "haze-01",
+    "x": 0.5,
+    "y": 0.66,
+    "width": 1.3,
+    "opacity": 0.6
+   },
+   {
+    "asset": "bridge-01",
+    "x": 0.5,
+    "y": 0.81,
+    "width": 1.3
+   },
+   {
+    "asset": "ground-field-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 1.3
+   }
+  ]
+ }
+]

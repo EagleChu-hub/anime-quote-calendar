@@ -1,0 +1,767 @@
+{
+  "note": "Claude Code 用 Claude Design 的現有元素補的場景，讓每個「情緒×季節」至少有 3 個範本可選。scenes.json 是設計師原檔（import_design.py 會覆蓋），補充一律寫在這裡。extendSeasons：把原範本開放到更多季節（這些範本本身不帶季節特徵）。 removeSeasons：把帶夏天高聳積雨雲（cloud-cumulus-01）的範本從秋冬拿掉（第二批自然風景補上後，秋冬場景已足夠）。",
+  "extendSeasons": {
+    "morning-platform": [
+      "summer"
+    ],
+    "seawall-horizon": [
+      "spring"
+    ],
+    "star-poles": [
+      "spring"
+    ],
+    "storm-light": [
+      "spring"
+    ]
+  },
+  "removeSeasons": {
+    "rooftop": [
+      "autumn"
+    ],
+    "seawall-horizon": [
+      "autumn"
+    ],
+    "suspension-bridge-valley": [
+      "winter"
+    ],
+    "near-mountain-clouds": [
+      "winter"
+    ],
+    "stream-autumn": [
+      "spring"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "snowfield-rays",
+      "name": "雪原的光",
+      "intent": "厚雲裂開一道光打在雪原上，遠山和一根電線桿。冬天版的雲縫光束。",
+      "moods": [
+        "courage",
+        "perseverance",
+        "growth"
+      ],
+      "seasons": [
+        "winter"
+      ],
+      "time": [
+        "day"
+      ],
+      "layers": [
+        {
+          "asset": "cloud-stratus-01",
+          "x": 0.5,
+          "y": 0.22,
+          "width": 1.4
+        },
+        {
+          "asset": "cloud-cumulus-02",
+          "x": 0.5,
+          "y": 0.42,
+          "width": 1.3,
+          "opacity": 0.9
+        },
+        {
+          "asset": "light-rays-01",
+          "x": [
+            0.4,
+            0.6
+          ],
+          "y": 0.52,
+          "width": 0.9,
+          "opacity": 0.8
+        },
+        {
+          "asset": "mountains-01",
+          "x": 0.5,
+          "y": 0.7,
+          "width": 1.3
+        },
+        {
+          "asset": "ground-snow-01",
+          "x": 0.5,
+          "y": 1.1,
+          "width": 1.3,
+          "scale": 1.6
+        },
+        {
+          "asset": "pole-wire-01",
+          "x": [
+            0.62,
+            0.7
+          ],
+          "y": 0.9,
+          "width": 0.56,
+          "flip": "random"
+        },
+        {
+          "asset": "snow-01",
+          "x": 0.5,
+          "y": 0.55,
+          "width": 1,
+          "opacity": 0.6
+        }
+      ]
+    },
+    {
+      "id": "winter-sea",
+      "name": "冬天的海",
+      "intent": "堤防上一張空長椅，面對灰藍的冬海，細雪落進海裡。",
+      "moods": [
+        "acceptance",
+        "departure",
+        "growth"
+      ],
+      "seasons": [
+        "winter"
+      ],
+      "time": [
+        "day",
+        "dusk"
+      ],
+      "layers": [
+        {
+          "asset": "cloud-cirrus-01",
+          "x": 0.4,
+          "y": 0.22,
+          "width": 0.9,
+          "opacity": 0.6
+        },
+        {
+          "asset": "sun-01",
+          "x": [
+            0.62,
+            0.74
+          ],
+          "y": 0.6,
+          "width": 0.6,
+          "only": "dusk"
+        },
+        {
+          "asset": "cloud-stratus-01",
+          "x": 0.5,
+          "y": 0.5,
+          "width": 1.3,
+          "opacity": 0.8
+        },
+        {
+          "asset": "sea-horizon-01",
+          "x": 0.5,
+          "y": 0.83,
+          "width": 1.3
+        },
+        {
+          "asset": "haze-01",
+          "x": 0.5,
+          "y": 0.665,
+          "width": 1.3,
+          "opacity": 0.7
+        },
+        {
+          "asset": "embankment-01",
+          "x": 0.5,
+          "y": 1,
+          "width": 1.3
+        },
+        {
+          "asset": "bench-01",
+          "x": [
+            0.3,
+            0.4
+          ],
+          "y": 0.8,
+          "width": 0.22
+        },
+        {
+          "asset": "snow-01",
+          "x": 0.5,
+          "y": 0.5,
+          "width": 1,
+          "opacity": 0.5
+        }
+      ]
+    },
+    {
+      "id": "snowy-town-lights",
+      "name": "雪夜的巷口",
+      "intent": "住宅區積了雪，路燈下並排停著兩輛腳踏車，像有人在等誰。",
+      "moods": [
+        "friendship",
+        "kindness",
+        "everyday"
+      ],
+      "seasons": [
+        "winter"
+      ],
+      "time": [
+        "dusk",
+        "night"
+      ],
+      "layers": [
+        {
+          "asset": "stars-01",
+          "x": 0.5,
+          "y": 0.28,
+          "width": 1,
+          "opacity": 0.6,
+          "only": "night"
+        },
+        {
+          "asset": "moon-crescent-01",
+          "x": 0.78,
+          "y": 0.2,
+          "width": 0.28,
+          "only": "night"
+        },
+        {
+          "asset": "cloud-stratus-01",
+          "x": 0.5,
+          "y": 0.5,
+          "width": 1.3,
+          "only": "dusk"
+        },
+        {
+          "asset": "town-far-01",
+          "x": 0.5,
+          "y": 0.72,
+          "width": 1.3
+        },
+        {
+          "asset": "houses-01",
+          "x": 0.5,
+          "y": 0.77,
+          "width": 1.25,
+          "flip": "random"
+        },
+        {
+          "asset": "ground-snow-01",
+          "x": 0.5,
+          "y": 1,
+          "width": 1.3
+        },
+        {
+          "asset": "glow-warm-01",
+          "x": 0.3,
+          "y": 0.72,
+          "width": 0.8
+        },
+        {
+          "asset": "streetlamp-01",
+          "x": 0.26,
+          "y": 0.97,
+          "width": 0.28
+        },
+        {
+          "asset": "bicycle-01",
+          "x": 0.56,
+          "y": 0.93,
+          "width": 0.28
+        },
+        {
+          "asset": "bicycle-01",
+          "x": 0.71,
+          "y": 0.94,
+          "width": 0.28,
+          "flip": "x"
+        },
+        {
+          "asset": "snow-01",
+          "x": 0.5,
+          "y": 0.55,
+          "width": 1
+        }
+      ]
+    },
+    {
+      "id": "crossing-cirrus",
+      "name": "高空雲的平交道",
+      "intent": "平交道和住宅區，天上是高而薄的捲雲，不是夏天的積雨雲，春秋冬都適用。",
+      "moods": [
+        "departure",
+        "perseverance",
+        "dream"
+      ],
+      "seasons": [
+        "spring",
+        "autumn",
+        "winter"
+      ],
+      "time": [
+        "day",
+        "dusk"
+      ],
+      "layers": [
+        {
+          "asset": "cloud-cirrus-01",
+          "x": 0.35,
+          "y": 0.22,
+          "width": 0.9,
+          "opacity": 0.6
+        },
+        {
+          "asset": "cloud-cumulus-02",
+          "x": [
+            0.45,
+            0.6
+          ],
+          "y": 0.5,
+          "width": 1.1,
+          "opacity": 0.9
+        },
+        {
+          "asset": "town-far-01",
+          "x": 0.5,
+          "y": 0.745,
+          "width": 1.3
+        },
+        {
+          "asset": "houses-01",
+          "x": 0.7,
+          "y": 0.77,
+          "width": 0.72,
+          "flip": "random"
+        },
+        {
+          "asset": "ground-field-01",
+          "x": 0.5,
+          "y": 1,
+          "width": 1.3
+        },
+        {
+          "asset": "tracks-side-01",
+          "x": 0.5,
+          "y": 0.87,
+          "width": 1.3
+        },
+        {
+          "asset": "crossing-01",
+          "x": [
+            0.64,
+            0.72
+          ],
+          "y": 0.875,
+          "width": 0.38
+        },
+        {
+          "asset": "pole-wire-01",
+          "x": [
+            0.56,
+            0.6
+          ],
+          "y": 1,
+          "width": 1.04,
+          "flip": "x"
+        }
+      ]
+    },
+    {
+      "id": "slope-far-sea",
+      "name": "坡道與遠方的海",
+      "intent": "下坡路通向海，天上只有捲雲和飛機雲，比夏天的版本更安靜、更遠。",
+      "moods": [
+        "dream",
+        "departure",
+        "growth"
+      ],
+      "seasons": [
+        "spring",
+        "autumn"
+      ],
+      "time": [
+        "day",
+        "dusk"
+      ],
+      "layers": [
+        {
+          "asset": "cloud-cirrus-01",
+          "x": 0.5,
+          "y": 0.22,
+          "width": 1,
+          "opacity": 0.7
+        },
+        {
+          "asset": "contrail-01",
+          "x": [
+            0.55,
+            0.65
+          ],
+          "y": 0.32,
+          "width": 0.7,
+          "only": "day"
+        },
+        {
+          "asset": "sun-01",
+          "x": [
+            0.2,
+            0.3
+          ],
+          "y": 0.6,
+          "width": 0.6,
+          "only": "dusk"
+        },
+        {
+          "asset": "cloud-cumulus-02",
+          "x": 0.3,
+          "y": 0.56,
+          "width": 0.9,
+          "opacity": 0.8
+        },
+        {
+          "asset": "sea-horizon-01",
+          "x": 0.5,
+          "y": 0.76,
+          "width": 1.3
+        },
+        {
+          "asset": "haze-01",
+          "x": 0.5,
+          "y": 0.62,
+          "width": 1.3,
+          "opacity": 0.8
+        },
+        {
+          "asset": "town-far-01",
+          "x": 0.22,
+          "y": 0.715,
+          "width": 0.7
+        },
+        {
+          "asset": "houses-01",
+          "x": 0.16,
+          "y": 0.79,
+          "width": 0.66,
+          "flip": "x"
+        },
+        {
+          "asset": "ground-field-01",
+          "x": 0.5,
+          "y": 1.02,
+          "width": 1.3
+        },
+        {
+          "asset": "trees-01",
+          "x": 0.9,
+          "y": 0.78,
+          "width": 0.62,
+          "flip": "x"
+        },
+        {
+          "asset": "road-slope-01",
+          "x": 0.5,
+          "y": 1,
+          "width": 1
+        },
+        {
+          "asset": "pole-wire-01",
+          "x": [
+            0.5,
+            0.55
+          ],
+          "y": 1,
+          "width": 1.04,
+          "flip": "x"
+        }
+      ]
+    },
+    {
+      "id": "windy-platform",
+      "name": "寒風中的月台",
+      "intent": "空月台伸向遠山，雲層裡透出一點光，第一班車還要很久才來。",
+      "moods": [
+        "perseverance",
+        "courage",
+        "departure"
+      ],
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "time": [
+        "day",
+        "dusk"
+      ],
+      "layers": [
+        {
+          "asset": "cloud-stratus-01",
+          "x": 0.5,
+          "y": 0.3,
+          "width": 1.4,
+          "opacity": 0.8
+        },
+        {
+          "asset": "cloud-cumulus-02",
+          "x": 0.6,
+          "y": 0.48,
+          "width": 1,
+          "opacity": 0.8
+        },
+        {
+          "asset": "light-rays-01",
+          "x": [
+            0.55,
+            0.7
+          ],
+          "y": 0.5,
+          "width": 0.8,
+          "opacity": 0.7,
+          "only": "day"
+        },
+        {
+          "asset": "sun-01",
+          "x": 0.72,
+          "y": 0.6,
+          "width": 0.6,
+          "only": "dusk"
+        },
+        {
+          "asset": "mountains-01",
+          "x": 0.5,
+          "y": 0.665,
+          "width": 1.3
+        },
+        {
+          "asset": "ground-field-01",
+          "x": 0.5,
+          "y": 1.065,
+          "width": 1.3,
+          "scale": 1.6
+        },
+        {
+          "asset": "rails-01",
+          "x": 0.44,
+          "y": 1,
+          "width": 1
+        },
+        {
+          "asset": "platform-01",
+          "x": 0.66,
+          "y": 1,
+          "width": 1,
+          "flip": "x"
+        },
+        {
+          "asset": "glow-warm-01",
+          "x": 0.78,
+          "y": 0.66,
+          "width": 0.6,
+          "only": "dusk"
+        },
+        {
+          "asset": "streetlamp-01",
+          "x": 0.82,
+          "y": 0.9,
+          "width": 0.22
+        }
+      ]
+    },
+    {
+      "id": "river-bank-dusk",
+      "name": "黃昏的河堤",
+      "intent": "低低的夕陽照著遠方的城市和橋，河堤上一張長椅和一盞剛亮的路燈。",
+      "moods": [
+        "acceptance",
+        "longing",
+        "solitude"
+      ],
+      "seasons": [
+        "autumn",
+        "winter"
+      ],
+      "time": [
+        "dusk"
+      ],
+      "layers": [
+        {
+          "asset": "sun-01",
+          "x": 0.7,
+          "y": 0.6,
+          "width": 0.7
+        },
+        {
+          "asset": "cloud-stratus-01",
+          "x": 0.5,
+          "y": 0.5,
+          "width": 1.3
+        },
+        {
+          "asset": "city-far-01",
+          "x": 0.5,
+          "y": 0.7,
+          "width": 1.3,
+          "opacity": 0.85
+        },
+        {
+          "asset": "haze-01",
+          "x": 0.5,
+          "y": 0.66,
+          "width": 1.3,
+          "opacity": 0.6
+        },
+        {
+          "asset": "bridge-01",
+          "x": 0.5,
+          "y": 0.79,
+          "width": 1.3
+        },
+        {
+          "asset": "embankment-01",
+          "x": 0.5,
+          "y": 1,
+          "width": 1.3
+        },
+        {
+          "asset": "bench-01",
+          "x": 0.3,
+          "y": 0.8,
+          "width": 0.2
+        },
+        {
+          "asset": "glow-warm-01",
+          "x": 0.76,
+          "y": 0.62,
+          "width": 0.5
+        },
+        {
+          "asset": "streetlamp-01",
+          "x": 0.8,
+          "y": 0.82,
+          "width": 0.2
+        }
+      ]
+    },
+    {
+      "id": "river-bridge",
+      "name": "河堤的橋",
+      "intent": "積雨雲下的河堤與橋，一輛腳踏車停在堤上，像是要出發，也像剛道別。",
+      "moods": [
+        "departure",
+        "farewell",
+        "acceptance"
+      ],
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "time": [
+        "day",
+        "dusk"
+      ],
+      "layers": [
+        {
+          "asset": "cloud-cirrus-01",
+          "x": 0.3,
+          "y": 0.2,
+          "width": 0.8,
+          "opacity": 0.6
+        },
+        {
+          "asset": "cloud-cumulus-01",
+          "x": [
+            0.6,
+            0.7
+          ],
+          "y": 0.42,
+          "width": 0.8
+        },
+        {
+          "asset": "city-far-01",
+          "x": 0.5,
+          "y": 0.7,
+          "width": 1.3,
+          "opacity": 0.8
+        },
+        {
+          "asset": "haze-01",
+          "x": 0.5,
+          "y": 0.66,
+          "width": 1.3,
+          "opacity": 0.6
+        },
+        {
+          "asset": "bridge-01",
+          "x": 0.5,
+          "y": 0.8,
+          "width": 1.3
+        },
+        {
+          "asset": "embankment-01",
+          "x": 0.5,
+          "y": 1,
+          "width": 1.3
+        },
+        {
+          "asset": "bicycle-01",
+          "x": [
+            0.2,
+            0.3
+          ],
+          "y": 0.8,
+          "width": 0.26,
+          "flip": "random"
+        }
+      ]
+    },
+    {
+      "id": "suspension-bridge-snow",
+      "name": "雪中的山谷吊橋",
+      "intent": "suspension-bridge-valley 的冬天版：高聳積雨雲換成低平的層雲，近景換成雪樹。原範本已從冬天拿掉，靠這個補回冬天 friendship 的第 3 個範本。",
+      "moods": [
+        "courage",
+        "departure",
+        "friendship"
+      ],
+      "seasons": [
+        "winter"
+      ],
+      "time": [
+        "day"
+      ],
+      "layers": [
+        {
+          "asset": "cloud-stratus-01",
+          "x": 0.5,
+          "y": 0.24,
+          "width": 1.4
+        },
+        {
+          "asset": "mountains-01",
+          "x": 0.5,
+          "y": 0.5,
+          "width": 1.3
+        },
+        {
+          "asset": "valley-01",
+          "x": 0.5,
+          "y": 0.75,
+          "width": 1.3
+        },
+        {
+          "asset": "fog-valley-01",
+          "x": 0.5,
+          "y": 0.6,
+          "width": 1.3,
+          "opacity": 0.7
+        },
+        {
+          "asset": "bridge-wood-01",
+          "x": 0.5,
+          "y": 0.62,
+          "width": 1.3
+        },
+        {
+          "asset": "snow-trees-01",
+          "x": 0.5,
+          "y": 0.9,
+          "width": 1.3,
+          "scale": 1.3
+        },
+        {
+          "asset": "snow-01",
+          "x": 0.5,
+          "y": 0.55,
+          "width": 1
+        }
+      ]
+    }
+  ]
+}

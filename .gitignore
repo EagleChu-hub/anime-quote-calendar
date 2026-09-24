@@ -1,0 +1,11 @@
+design-return/
+handoff-claude-design/
+dist/
+sources/
+__pycache__/
+design-return-2/
+handoff-claude-design-2/
+# 內部工作檔：審閱表、進度備忘、本機預覽設定
+*審閱表.md
+進度備忘.md
+.claude/

@@ -1,0 +1,1308 @@
+[
+ {
+  "id": "snow-stone-bridge",
+  "name": "雪中的石橋",
+  "intent": "雪夜的小河上一座石拱橋，覆雪的杉林在兩岸，橋頭一盞燈把雪照成暖色。",
+  "moods": [
+   "longing",
+   "farewell",
+   "kindness"
+  ],
+  "seasons": [
+   "winter"
+  ],
+  "time": [
+   "night",
+   "dusk"
+  ],
+  "layers": [
+   {
+    "asset": "stars-01",
+    "x": 0.5,
+    "y": 0.3,
+    "width": 1,
+    "opacity": 0.5,
+    "only": "night"
+   },
+   {
+    "asset": "moon-full-01",
+    "x": [
+     0.72,
+     0.8
+    ],
+    "y": 0.2,
+    "width": 0.44,
+    "only": "night"
+   },
+   {
+    "asset": "cloud-stratus-01",
+    "x": 0.5,
+    "y": 0.52,
+    "width": 1.3,
+    "only": "dusk"
+   },
+   {
+    "asset": "mountains-01",
+    "x": 0.5,
+    "y": 0.56,
+    "width": 1.3,
+    "opacity": 0.8
+   },
+   {
+    "asset": "snow-trees-01",
+    "x": 0.5,
+    "y": 0.63,
+    "width": 1.3,
+    "opacity": 0.9
+   },
+   {
+    "asset": "river-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 1.3,
+    "scale": 1.25
+   },
+   {
+    "asset": "glow-warm-01",
+    "x": 0.7,
+    "y": 0.53,
+    "width": 0.5
+   },
+   {
+    "asset": "bridge-stone-01",
+    "x": 0.5,
+    "y": 0.68,
+    "width": 1
+   },
+   {
+    "asset": "streetlamp-01",
+    "x": 0.75,
+    "y": 0.585,
+    "width": 0.11
+   },
+   {
+    "asset": "snow-01",
+    "x": 0.5,
+    "y": 0.55,
+    "width": 1
+   }
+  ]
+ },
+ {
+  "id": "paddy-sunset",
+  "name": "水田倒映的晚霞",
+  "intent": "插秧後的水田像一面面鏡子，把晚霞和遠山一格一格倒映出來，電線桿站在田邊。",
+  "moods": [
+   "acceptance",
+   "everyday",
+   "longing"
+  ],
+  "seasons": [
+   "spring",
+   "summer"
+  ],
+  "time": [
+   "dusk",
+   "day"
+  ],
+  "layers": [
+   {
+    "asset": "cloud-cirrus-01",
+    "x": 0.4,
+    "y": 0.22,
+    "width": 1,
+    "opacity": 0.7
+   },
+   {
+    "asset": "sun-01",
+    "x": 0.34,
+    "y": 0.58,
+    "width": 0.6,
+    "only": "dusk"
+   },
+   {
+    "asset": "cloud-stratus-01",
+    "x": 0.5,
+    "y": 0.46,
+    "width": 1.3
+   },
+   {
+    "asset": "mountains-01",
+    "x": 0.5,
+    "y": 0.655,
+    "width": 1.3
+   },
+   {
+    "asset": "forest-far-01",
+    "x": 0.5,
+    "y": 0.665,
+    "width": 1.3
+   },
+   {
+    "asset": "rice-paddy-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 1.3,
+    "scale": 1.35
+   },
+   {
+    "asset": "water-reflection-01",
+    "x": 0.34,
+    "y": 0.72,
+    "width": 0.5,
+    "opacity": 0.8,
+    "only": "dusk"
+   },
+   {
+    "asset": "pole-wire-01",
+    "x": 0.72,
+    "y": 0.82,
+    "width": 0.5,
+    "flip": "random"
+   }
+  ]
+ },
+ {
+  "id": "waterfall-rocks",
+  "name": "瀑布前的岩石",
+  "intent": "兩側岩壁夾著一道瀑布，水霧升起，前景的溪石被沖得發亮。",
+  "moods": [
+   "courage",
+   "perseverance",
+   "growth"
+  ],
+  "seasons": [
+   "spring",
+   "summer",
+   "autumn"
+  ],
+  "time": [
+   "day",
+   "rain"
+  ],
+  "layers": [
+   {
+    "asset": "cloud-cumulus-02",
+    "x": 0.5,
+    "y": 0.16,
+    "width": 1.1,
+    "opacity": 0.9
+   },
+   {
+    "asset": "light-rays-01",
+    "x": 0.5,
+    "y": 0.3,
+    "width": 0.8,
+    "opacity": 0.6,
+    "only": "day"
+   },
+   {
+    "asset": "waterfall-01",
+    "x": 0.5,
+    "y": 0.8,
+    "width": 1.05
+   },
+   {
+    "asset": "waterfall-mist-01",
+    "x": 0.5,
+    "y": 0.76,
+    "width": 1.2
+   },
+   {
+    "asset": "stream-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 1.25
+   },
+   {
+    "asset": "sea-rocks-01",
+    "x": 0.24,
+    "y": 1,
+    "width": 0.6
+   },
+   {
+    "asset": "rain-01",
+    "x": 0.5,
+    "y": 0.5,
+    "width": 1,
+    "only": "rain"
+   }
+  ]
+ },
+ {
+  "id": "winter-valley-fog",
+  "name": "冬晨山谷霧",
+  "intent": "冬天清晨，太陽剛爬過稜線，山谷裡的霧一層層散開，覆雪的杉樹從霧裡露出來。",
+  "moods": [
+   "growth",
+   "acceptance",
+   "departure"
+  ],
+  "seasons": [
+   "winter"
+  ],
+  "time": [
+   "day"
+  ],
+  "layers": [
+   {
+    "asset": "cloud-cirrus-01",
+    "x": 0.5,
+    "y": 0.2,
+    "width": 1,
+    "opacity": 0.6
+   },
+   {
+    "asset": "sun-01",
+    "x": 0.7,
+    "y": 0.46,
+    "width": 0.66
+   },
+   {
+    "asset": "mountains-01",
+    "x": 0.5,
+    "y": 0.6,
+    "width": 1.3
+   },
+   {
+    "asset": "valley-01",
+    "x": 0.5,
+    "y": 0.74,
+    "width": 1.3
+   },
+   {
+    "asset": "fog-valley-01",
+    "x": 0.5,
+    "y": 0.66,
+    "width": 1.3
+   },
+   {
+    "asset": "snow-trees-01",
+    "x": 0.5,
+    "y": 0.8,
+    "width": 1.3
+   },
+   {
+    "asset": "fog-valley-01",
+    "x": 0.5,
+    "y": 0.83,
+    "width": 1.3,
+    "opacity": 0.7,
+    "flip": "x"
+   },
+   {
+    "asset": "ground-snow-01",
+    "x": 0.5,
+    "y": 1.08,
+    "width": 1.3,
+    "scale": 1.4
+   }
+  ]
+ },
+ {
+  "id": "bamboo-light-path",
+  "name": "竹林小徑的光",
+  "intent": "竹林中間一條石徑，盡頭的光從竹葉縫裡漏下來，路邊的石頭被照亮。",
+  "moods": [
+   "solitude",
+   "growth",
+   "kindness"
+  ],
+  "seasons": [
+   "spring",
+   "summer",
+   "autumn"
+  ],
+  "time": [
+   "day",
+   "rain"
+  ],
+  "layers": [
+   {
+    "asset": "cloud-cirrus-01",
+    "x": 0.5,
+    "y": 0.14,
+    "width": 1,
+    "opacity": 0.6
+   },
+   {
+    "asset": "light-rays-01",
+    "x": 0.5,
+    "y": 0.36,
+    "width": 0.6,
+    "opacity": 0.5,
+    "only": "day"
+   },
+   {
+    "asset": "bamboo-path-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 1,
+    "scale": 1.4
+   },
+   {
+    "asset": "rain-01",
+    "x": 0.5,
+    "y": 0.5,
+    "width": 1,
+    "only": "rain"
+   }
+  ]
+ },
+ {
+  "id": "forest-path-light",
+  "name": "林間小徑的盡頭有光",
+  "intent": "杉林夾著一條往前延伸的小徑，樹影很深，只有盡頭一團暖光。",
+  "moods": [
+   "departure",
+   "courage",
+   "perseverance"
+  ],
+  "seasons": [
+   "spring",
+   "summer",
+   "autumn"
+  ],
+  "time": [
+   "day",
+   "dusk"
+  ],
+  "layers": [
+   {
+    "asset": "cloud-cumulus-02",
+    "x": 0.5,
+    "y": 0.2,
+    "width": 1.1,
+    "opacity": 0.8
+   },
+   {
+    "asset": "forest-mid-01",
+    "x": 0.5,
+    "y": 0.36,
+    "width": 1.3
+   },
+   {
+    "asset": "light-rays-01",
+    "x": 0.5,
+    "y": 0.4,
+    "width": 0.7,
+    "opacity": 0.55
+   },
+   {
+    "asset": "forest-path-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 1,
+    "scale": 1.4
+   }
+  ]
+ },
+ {
+  "id": "lake-pier-stars",
+  "name": "湖上的小碼頭與星空",
+  "intent": "無風的湖面把銀河倒映下來，一條木棧橋伸向湖心。",
+  "moods": [
+   "dream",
+   "longing",
+   "solitude"
+  ],
+  "seasons": [
+   "summer",
+   "autumn",
+   "winter"
+  ],
+  "time": [
+   "night"
+  ],
+  "layers": [
+   {
+    "asset": "milkyway-01",
+    "x": 0.5,
+    "y": 0.3,
+    "width": 1.3
+   },
+   {
+    "asset": "stars-01",
+    "x": 0.5,
+    "y": 0.3,
+    "width": 1
+   },
+   {
+    "asset": "meteor-01",
+    "x": [
+     0.62,
+     0.78
+    ],
+    "y": 0.14,
+    "width": 0.3
+   },
+   {
+    "asset": "mountains-01",
+    "x": 0.5,
+    "y": 0.675,
+    "width": 1.3,
+    "opacity": 0.85
+   },
+   {
+    "asset": "forest-far-01",
+    "x": 0.5,
+    "y": 0.675,
+    "width": 1.3
+   },
+   {
+    "asset": "lake-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 1.3,
+    "scale": 1.5
+   },
+   {
+    "asset": "water-reflection-01",
+    "x": 0.5,
+    "y": 0.76,
+    "width": 0.8,
+    "opacity": 0.5
+   },
+   {
+    "asset": "pier-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 0.8
+   }
+  ]
+ },
+ {
+  "id": "riverside-tree",
+  "name": "河邊的一棵大樹",
+  "intent": "河灣旁一棵大樹，樹下停著一輛腳踏車，午後的光落在水面上。",
+  "moods": [
+   "friendship",
+   "kindness",
+   "everyday"
+  ],
+  "seasons": [
+   "spring",
+   "summer",
+   "autumn"
+  ],
+  "time": [
+   "day",
+   "dusk"
+  ],
+  "layers": [
+   {
+    "asset": "cloud-cumulus-02",
+    "x": 0.5,
+    "y": 0.45,
+    "width": 1.2
+   },
+   {
+    "asset": "mountains-01",
+    "x": 0.5,
+    "y": 0.6,
+    "width": 1.3,
+    "opacity": 0.8
+   },
+   {
+    "asset": "forest-far-01",
+    "x": 0.5,
+    "y": 0.62,
+    "width": 1.3
+   },
+   {
+    "asset": "river-01",
+    "x": 0.42,
+    "y": 1,
+    "width": 1.3,
+    "scale": 1.1
+   },
+   {
+    "asset": "tree-single-01",
+    "x": 0.76,
+    "y": 0.8,
+    "width": 0.7
+   },
+   {
+    "asset": "bicycle-01",
+    "x": 0.6,
+    "y": 0.795,
+    "width": 0.16
+   }
+  ]
+ },
+ {
+  "id": "rain-paddy-poles",
+  "name": "雨中的稻田與電線桿",
+  "intent": "雨中的水田，電線桿一根根往遠處排，水面被雨點打出細紋。",
+  "moods": [
+   "perseverance",
+   "kindness"
+  ],
+  "seasons": [
+   "spring",
+   "summer"
+  ],
+  "time": [
+   "rain"
+  ],
+  "layers": [
+   {
+    "asset": "cloud-stratus-01",
+    "x": 0.5,
+    "y": 0.3,
+    "width": 1.4
+   },
+   {
+    "asset": "mountains-01",
+    "x": 0.5,
+    "y": 0.62,
+    "width": 1.3,
+    "opacity": 0.7
+   },
+   {
+    "asset": "forest-far-01",
+    "x": 0.5,
+    "y": 0.63,
+    "width": 1.3
+   },
+   {
+    "asset": "rice-paddy-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 1.3,
+    "scale": 1.35
+   },
+   {
+    "asset": "pole-wire-01",
+    "x": 0.9,
+    "y": 0.72,
+    "width": 0.3
+   },
+   {
+    "asset": "pole-wire-01",
+    "x": 0.66,
+    "y": 0.9,
+    "width": 0.7
+   },
+   {
+    "asset": "rain-01",
+    "x": 0.5,
+    "y": 0.5,
+    "width": 1
+   }
+  ]
+ },
+ {
+  "id": "golden-rice",
+  "name": "稻穗金黃",
+  "intent": "秋天的稻田一片金黃，稻穗低著頭，遠山後面是傍晚的雲。",
+  "moods": [
+   "growth",
+   "everyday",
+   "acceptance"
+  ],
+  "seasons": [
+   "autumn"
+  ],
+  "time": [
+   "day",
+   "dusk"
+  ],
+  "layers": [
+   {
+    "asset": "sun-01",
+    "x": 0.74,
+    "y": 0.5,
+    "width": 0.6,
+    "only": "dusk"
+   },
+   {
+    "asset": "cloud-cumulus-02",
+    "x": 0.5,
+    "y": 0.5,
+    "width": 1.2
+   },
+   {
+    "asset": "mountains-01",
+    "x": 0.5,
+    "y": 0.63,
+    "width": 1.3
+   },
+   {
+    "asset": "forest-far-01",
+    "x": 0.5,
+    "y": 0.645,
+    "width": 1.3
+   },
+   {
+    "asset": "pole-wire-01",
+    "x": 0.22,
+    "y": 0.76,
+    "width": 0.36,
+    "flip": "x"
+   },
+   {
+    "asset": "rice-field-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 1.3,
+    "scale": 1.3
+   }
+  ]
+ },
+ {
+  "id": "winter-sea-rocks",
+  "name": "冬日海岸岩石",
+  "intent": "灰藍的冬海，浪一次次打上岸邊的黑色岩石。",
+  "moods": [
+   "courage",
+   "perseverance",
+   "solitude"
+  ],
+  "seasons": [
+   "winter",
+   "spring"
+  ],
+  "time": [
+   "day",
+   "rain"
+  ],
+  "layers": [
+   {
+    "asset": "cloud-stratus-01",
+    "x": 0.5,
+    "y": 0.35,
+    "width": 1.4
+   },
+   {
+    "asset": "sea-horizon-01",
+    "x": 0.5,
+    "y": 0.72,
+    "width": 1.3
+   },
+   {
+    "asset": "sea-waves-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 1.3,
+    "scale": 1.1
+   },
+   {
+    "asset": "sea-rocks-01",
+    "x": 0.7,
+    "y": 0.93,
+    "width": 0.72
+   },
+   {
+    "asset": "rain-01",
+    "x": 0.5,
+    "y": 0.5,
+    "width": 1,
+    "only": "rain"
+   }
+  ]
+ },
+ {
+  "id": "beach-tide",
+  "name": "潮退的沙灘",
+  "intent": "潮水退得很遠，濕沙映著天色，沙灘上放著兩罐飲料。",
+  "moods": [
+   "acceptance",
+   "farewell",
+   "friendship"
+  ],
+  "seasons": [
+   "spring",
+   "summer"
+  ],
+  "time": [
+   "day",
+   "dusk"
+  ],
+  "layers": [
+   {
+    "asset": "sun-01",
+    "x": 0.5,
+    "y": 0.58,
+    "width": 0.62,
+    "only": "dusk"
+   },
+   {
+    "asset": "cloud-cumulus-02",
+    "x": 0.5,
+    "y": 0.54,
+    "width": 1.2
+   },
+   {
+    "asset": "sea-horizon-01",
+    "x": 0.5,
+    "y": 0.78,
+    "width": 1.3
+   },
+   {
+    "asset": "beach-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 1.3
+   },
+   {
+    "asset": "cans-01",
+    "x": 0.64,
+    "y": 0.9,
+    "width": 0.1
+   }
+  ]
+ },
+ {
+  "id": "suspension-bridge-valley",
+  "name": "山谷吊橋",
+  "intent": "一座木吊橋橫過霧氣翻湧的山谷，對岸是看不清的山路。",
+  "moods": [
+   "courage",
+   "departure",
+   "friendship"
+  ],
+  "seasons": [
+   "spring",
+   "summer",
+   "autumn",
+   "winter"
+  ],
+  "time": [
+   "day"
+  ],
+  "layers": [
+   {
+    "asset": "cloud-cumulus-01",
+    "x": 0.5,
+    "y": 0.3,
+    "width": 0.8
+   },
+   {
+    "asset": "mountains-01",
+    "x": 0.5,
+    "y": 0.5,
+    "width": 1.3
+   },
+   {
+    "asset": "valley-01",
+    "x": 0.5,
+    "y": 0.75,
+    "width": 1.3
+   },
+   {
+    "asset": "fog-valley-01",
+    "x": 0.5,
+    "y": 0.6,
+    "width": 1.3,
+    "opacity": 0.7
+   },
+   {
+    "asset": "bridge-wood-01",
+    "x": 0.5,
+    "y": 0.62,
+    "width": 1.3
+   },
+   {
+    "asset": "forest-mid-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 1.3
+   }
+  ]
+ },
+ {
+  "id": "rail-bridge-river",
+  "name": "鐵道橋與河",
+  "intent": "鋼構鐵道橋跨過寬闊的河，遠山下的河面一路亮到橋下。",
+  "moods": [
+   "departure",
+   "farewell",
+   "dream"
+  ],
+  "seasons": [
+   "summer",
+   "winter"
+  ],
+  "time": [
+   "day",
+   "dusk"
+  ],
+  "layers": [
+   {
+    "asset": "cloud-cumulus-02",
+    "x": 0.5,
+    "y": 0.45,
+    "width": 1.2
+   },
+   {
+    "asset": "mountains-01",
+    "x": 0.5,
+    "y": 0.58,
+    "width": 1.3
+   },
+   {
+    "asset": "forest-far-01",
+    "x": 0.5,
+    "y": 0.6,
+    "width": 1.3
+   },
+   {
+    "asset": "river-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 1.3,
+    "scale": 1.1
+   },
+   {
+    "asset": "bridge-rail-01",
+    "x": 0.5,
+    "y": 0.66,
+    "width": 1.3
+   }
+  ]
+ },
+ {
+  "id": "snowy-forest-night",
+  "name": "雪夜森林",
+  "intent": "覆雪的杉林在細月下發亮，林中一盞燈照出一小圈暖色。",
+  "moods": [
+   "solitude",
+   "longing",
+   "dream"
+  ],
+  "seasons": [
+   "winter"
+  ],
+  "time": [
+   "night"
+  ],
+  "layers": [
+   {
+    "asset": "stars-01",
+    "x": 0.5,
+    "y": 0.3,
+    "width": 1
+   },
+   {
+    "asset": "moon-crescent-01",
+    "x": 0.3,
+    "y": 0.2,
+    "width": 0.3
+   },
+   {
+    "asset": "mountains-01",
+    "x": 0.5,
+    "y": 0.6,
+    "width": 1.3,
+    "opacity": 0.7
+   },
+   {
+    "asset": "snow-trees-01",
+    "x": 0.5,
+    "y": 0.7,
+    "width": 1.3,
+    "opacity": 0.85
+   },
+   {
+    "asset": "glow-warm-01",
+    "x": 0.62,
+    "y": 0.68,
+    "width": 0.6
+   },
+   {
+    "asset": "streetlamp-01",
+    "x": 0.64,
+    "y": 0.84,
+    "width": 0.18
+   },
+   {
+    "asset": "snow-trees-01",
+    "x": 0.5,
+    "y": 0.9,
+    "width": 1.3,
+    "scale": 1.3,
+    "flip": "x"
+   },
+   {
+    "asset": "snow-01",
+    "x": 0.5,
+    "y": 0.55,
+    "width": 1
+   }
+  ]
+ },
+ {
+  "id": "mountain-path-steps",
+  "name": "山路石階",
+  "intent": "一段石階往山上延伸，轉個彎消失在樹林裡。",
+  "moods": [
+   "perseverance",
+   "growth",
+   "courage"
+  ],
+  "seasons": [
+   "spring",
+   "autumn",
+   "winter"
+  ],
+  "time": [
+   "day"
+  ],
+  "layers": [
+   {
+    "asset": "cloud-cumulus-02",
+    "x": 0.5,
+    "y": 0.3,
+    "width": 1.2
+   },
+   {
+    "asset": "mountains-01",
+    "x": 0.5,
+    "y": 0.45,
+    "width": 1.3
+   },
+   {
+    "asset": "forest-far-01",
+    "x": 0.5,
+    "y": 0.5,
+    "width": 1.3
+   },
+   {
+    "asset": "mountain-path-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 0.9,
+    "scale": 1.2
+   }
+  ]
+ },
+ {
+  "id": "lake-shore-dawn",
+  "name": "冬晨湖岸",
+  "intent": "冬天清晨的湖，太陽低低地照在水面上，岸邊的蘆葦結著霜。",
+  "moods": [
+   "acceptance",
+   "kindness",
+   "farewell"
+  ],
+  "seasons": [
+   "winter",
+   "autumn"
+  ],
+  "time": [
+   "day",
+   "dusk"
+  ],
+  "layers": [
+   {
+    "asset": "sun-01",
+    "x": 0.66,
+    "y": 0.52,
+    "width": 0.6
+   },
+   {
+    "asset": "cloud-stratus-01",
+    "x": 0.5,
+    "y": 0.45,
+    "width": 1.3
+   },
+   {
+    "asset": "mountains-01",
+    "x": 0.5,
+    "y": 0.6,
+    "width": 1.3
+   },
+   {
+    "asset": "forest-far-01",
+    "x": 0.5,
+    "y": 0.62,
+    "width": 1.3
+   },
+   {
+    "asset": "lake-01",
+    "x": 0.5,
+    "y": 0.86,
+    "width": 1.3
+   },
+   {
+    "asset": "water-reflection-01",
+    "x": 0.66,
+    "y": 0.7,
+    "width": 0.6,
+    "opacity": 0.8
+   },
+   {
+    "asset": "lake-shore-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 1.3,
+    "scale": 1.4
+   }
+  ]
+ },
+ {
+  "id": "near-mountain-clouds",
+  "name": "雲湧的近山",
+  "intent": "近處的大山擋住半邊天，山腰的雲正往上湧。",
+  "moods": [
+   "dream",
+   "courage",
+   "growth"
+  ],
+  "seasons": [
+   "summer",
+   "winter"
+  ],
+  "time": [
+   "day"
+  ],
+  "layers": [
+   {
+    "asset": "cloud-cumulus-01",
+    "x": 0.6,
+    "y": 0.25,
+    "width": 0.9
+   },
+   {
+    "asset": "mountain-near-01",
+    "x": 0.5,
+    "y": 0.78,
+    "width": 1.3
+   },
+   {
+    "asset": "fog-valley-01",
+    "x": 0.5,
+    "y": 0.66,
+    "width": 1.3
+   },
+   {
+    "asset": "forest-mid-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 1.3
+   }
+  ]
+ },
+ {
+  "id": "stream-autumn",
+  "name": "秋日溪流",
+  "intent": "溪水繞過石頭往下流，岸邊的楓葉垂到水面上。",
+  "moods": [
+   "friendship",
+   "everyday",
+   "acceptance"
+  ],
+  "seasons": [
+   "autumn",
+   "spring"
+  ],
+  "time": [
+   "day"
+  ],
+  "layers": [
+   {
+    "asset": "cloud-cirrus-01",
+    "x": 0.5,
+    "y": 0.2,
+    "width": 1,
+    "opacity": 0.7
+   },
+   {
+    "asset": "forest-far-01",
+    "x": 0.5,
+    "y": 0.52,
+    "width": 1.3
+   },
+   {
+    "asset": "forest-mid-01",
+    "x": 0.5,
+    "y": 0.66,
+    "width": 1.3
+   },
+   {
+    "asset": "stream-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 1.3,
+    "scale": 1.3
+   },
+   {
+    "asset": "maple-branch-01",
+    "x": 0.76,
+    "y": 0.28,
+    "width": 0.7,
+    "flip": "x"
+   },
+   {
+    "asset": "leaves-falling-01",
+    "x": 0.5,
+    "y": 0.55,
+    "width": 1
+   }
+  ]
+ },
+ {
+  "id": "sea-waves-dusk",
+  "name": "黃昏的浪",
+  "intent": "夕陽落在海平線上，一道道浪把光推到岸邊。",
+  "moods": [
+   "longing",
+   "farewell",
+   "acceptance"
+  ],
+  "seasons": [
+   "summer",
+   "autumn",
+   "winter"
+  ],
+  "time": [
+   "dusk"
+  ],
+  "layers": [
+   {
+    "asset": "sun-01",
+    "x": 0.4,
+    "y": 0.6,
+    "width": 0.7
+   },
+   {
+    "asset": "cloud-stratus-01",
+    "x": 0.5,
+    "y": 0.5,
+    "width": 1.3
+   },
+   {
+    "asset": "sea-horizon-01",
+    "x": 0.5,
+    "y": 0.74,
+    "width": 1.3
+   },
+   {
+    "asset": "water-reflection-01",
+    "x": 0.4,
+    "y": 0.68,
+    "width": 0.5,
+    "opacity": 0.8
+   },
+   {
+    "asset": "sea-waves-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 1.3,
+    "scale": 1.1
+   }
+  ]
+ },
+ {
+  "id": "winter-rice-snow",
+  "name": "雪覆的田埂",
+  "intent": "收割後的冬田，結冰的水面映著天，一條田埂筆直通向遠處的杉林。",
+  "moods": [
+   "solitude",
+   "perseverance",
+   "dream"
+  ],
+  "seasons": [
+   "winter"
+  ],
+  "time": [
+   "day",
+   "dusk"
+  ],
+  "layers": [
+   {
+    "asset": "cloud-cirrus-01",
+    "x": 0.5,
+    "y": 0.2,
+    "width": 1,
+    "opacity": 0.6
+   },
+   {
+    "asset": "sun-01",
+    "x": 0.3,
+    "y": 0.6,
+    "width": 0.6,
+    "only": "dusk"
+   },
+   {
+    "asset": "mountains-01",
+    "x": 0.5,
+    "y": 0.6,
+    "width": 1.3
+   },
+   {
+    "asset": "snow-trees-01",
+    "x": 0.5,
+    "y": 0.66,
+    "width": 1.3,
+    "opacity": 0.8
+   },
+   {
+    "asset": "paddy-ridge-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 1,
+    "scale": 1.3
+   },
+   {
+    "asset": "pole-wire-01",
+    "x": 0.8,
+    "y": 0.82,
+    "width": 0.5
+   }
+  ]
+ },
+ {
+  "id": "bamboo-snow",
+  "name": "雪中竹林",
+  "intent": "雪落在竹林裡，竹葉被壓彎，前景一枝竹子伸進畫面。",
+  "moods": [
+   "kindness",
+   "solitude",
+   "perseverance"
+  ],
+  "seasons": [
+   "winter"
+  ],
+  "time": [
+   "day",
+   "night"
+  ],
+  "layers": [
+   {
+    "asset": "stars-01",
+    "x": 0.5,
+    "y": 0.25,
+    "width": 1,
+    "opacity": 0.5,
+    "only": "night"
+   },
+   {
+    "asset": "bamboo-grove-01",
+    "x": 0.5,
+    "y": 1,
+    "width": 1.3,
+    "scale": 1.3
+   },
+   {
+    "asset": "ground-snow-01",
+    "x": 0.5,
+    "y": 1.06,
+    "width": 1.3
+   },
+   {
+    "asset": "bamboo-front-01",
+    "x": 0.88,
+    "y": 1,
+    "width": 0.5
+   },
+   {
+    "asset": "snow-01",
+    "x": 0.5,
+    "y": 0.55,
+    "width": 1
+   }
+  ]
+ }
+]

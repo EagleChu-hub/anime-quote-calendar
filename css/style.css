@@ -1,0 +1,173 @@
+/* 空鏡日曆：夜空藍底，卡片本身就是畫面 */
+:root {
+  --page: #0B1020;
+  --surface: #151B2E;
+  --text: #EEF0F8;
+  --text-soft: #A3AAC0;
+  --accent: #FFD27A;
+  --accent-text: #1A1406;
+  --line: rgba(238, 240, 248, 0.18);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 16px 40px -12px rgba(0, 0, 0, 0.75);
+  --ui: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  color-scheme: dark;
+}
+
+[hidden] { display: none !important; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--text);
+  font-family: var(--ui);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-inline: 16px;
+  padding-block: 16px calc(12px + env(safe-area-inset-bottom, 0px));
+  box-sizing: border-box;
+}
+
+.stage {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  touch-action: pan-y;
+}
+.card {
+  display: block;
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  background: var(--surface);
+  transition: opacity 0.18s ease;
+}
+.card.fading { opacity: 0.35; }
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  flex-wrap: nowrap;
+}
+
+.btn {
+  font: inherit;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  min-height: 44px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.btn:hover { border-color: var(--text-soft); }
+.btn:focus-visible, .date-pick:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
+.btn.icon { width: 44px; padding: 0; }
+.btn.icon svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.btn.text { padding: 0 14px; font-size: 15px; letter-spacing: 0.06em; white-space: nowrap; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-text); font-weight: 500; }
+.btn.primary:hover { filter: brightness(1.06); }
+
+.date-pick {
+  position: relative;
+  min-height: 44px;
+  padding: 0 10px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 300;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.date-pick input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  width: 100%;
+  cursor: pointer;
+}
+
+.sheet {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 5, 12, 0.7);
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  z-index: 10;
+}
+.sheet-inner {
+  background: var(--surface);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 20px;
+  width: min(420px, 100%);
+  max-height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow: auto;
+}
+.sheet-title { margin: 0; font-size: 20px; font-weight: 500; }
+.sheet-inner img {
+  width: 100%;
+  max-height: 58vh;
+  object-fit: contain;
+  border-radius: 6px;
+  background: var(--page);
+}
+.sheet-hint { margin: 0; font-size: 14px; color: var(--text-soft); line-height: 1.6; }
+.sheet-actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+
+.about-link {
+  align-self: center;
+  font: inherit;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--text-soft);
+  background: none;
+  border: 0;
+  padding: 4px 12px;
+  margin-top: -6px;
+  cursor: pointer;
+}
+.about-link:hover { color: var(--text); }
+.about-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+.about p, .about dd { margin: 0; font-size: 14px; line-height: 1.75; }
+.about dl { margin: 0; display: grid; gap: 4px; }
+.about dt {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-top: 8px;
+}
+.about dd { color: var(--text-soft); }
+.about dd a { color: var(--text); text-decoration: underline; text-underline-offset: 2px; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card { transition: none; }
+}
