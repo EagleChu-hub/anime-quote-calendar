@@ -34,12 +34,12 @@
     return Promise.resolve(months[k]);
   }
 
-  // 場景去重：從固定起點 EPOCH 開始逐日推算每天用的範本，每天避開前 AVOID 天用過的。
+  // 場景去重：從固定起點 EPOCH（2026-09-25，收錄第一天）開始逐日推算每天用的範本，每天避開前 AVOID 天用過的。
   // 結果只取決於日期和內容，所以螢幕、存圖、任何裝置看到的都一樣；算過的存在 sceneMemo。
-  const EPOCH = new Date(2026, 9, 1);
+  const EPOCH = new Date(2026, 8, 25);
   const AVOID = 5;
   const sceneMemo = [];
-  const dayNo = (d) => Math.round((Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) - Date.UTC(2026, 9, 1)) / 86400000);
+  const dayNo = (d) => Math.round((Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) - Date.UTC(2026, 8, 25)) / 86400000);
   async function recentScenes(d) {
     const target = dayNo(d);
     for (let i = sceneMemo.length; i < target; i++) {

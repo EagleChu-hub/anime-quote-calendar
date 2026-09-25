@@ -1,7 +1,7 @@
 """語錄內容校對：python tools/validate.py
 
 檢查 data/quotes/*.json 是否符合 SOP 的規格，有問題時列出並以 exit code 1 結束。
-- 期間 2026-10-01 至 2027-12-31，每天一則，不缺也不重複
+- 期間 2026-09-25 至 2027-12-31，每天一則，不缺也不重複
 - 必填欄位：quote_zh、quote_ja、work、character、episode（可空白）、mood、text、source_url
 - mood 必須是 12 種之一
 - 中譯 45 字以內、短文 60～90 字
@@ -17,7 +17,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-START, END = datetime.date(2026, 10, 1), datetime.date(2027, 12, 31)
+START, END = datetime.date(2026, 9, 25), datetime.date(2027, 12, 31)
 MOODS = {"departure", "perseverance", "friendship", "farewell", "longing", "kindness",
          "growth", "dream", "courage", "solitude", "acceptance", "everyday"}
 REQUIRED = ["quote_zh", "quote_ja", "work", "character", "episode", "mood", "text", "source_url"]
