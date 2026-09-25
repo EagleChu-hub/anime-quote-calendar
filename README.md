@@ -8,7 +8,7 @@
 ## 每日提醒與分享
 
 - 每日提醒：底部「每日提醒」選時間後開啟，每天在該整點（台北時間）收到當天的台詞推播。iPhone 需 iOS 16.4 以上，並先「加入主畫面」再從主畫面開啟。推播由另一個 Cloudflare Worker（calendar-push）送出，只儲存瀏覽器的推播位址與時間。
-- 分享：「存圖」面板可以用系統分享把圖卡傳到脆、LINE，或按「脆」「LINE」分享當天的文字與連結（連結帶 `#YYYYMMDD`，點開就是那一天）。
+- 分享：按「分享」打開面板，可以用系統分享直接傳圖卡，或按 Threads、LINE 分享當天的句子與連結。連結是 `d/YYYYMMDD.html`，預覽圖是那一天的縮圖，點開會跳到日曆的那一天。
 
 ## 版權
 
@@ -27,3 +27,4 @@
 - 本機預覽：`python tools/dev_server.py`，開 http://localhost:8765
 - 內容：`data/quotes/YYYY-MM.json`，由 `tools/draft_YYYY_MM.py` 產生
 - 校對：`python tools/validate.py`
+- 分享頁與預覽圖：`python tools/build_share.py`（改過語錄後要重跑，再用 `--check` 確認）。產生 `d/YYYYMMDD.html` 與 `og/YYYYMMDD.jpg`，讓 Threads、LINE 顯示當天的縮圖
