@@ -197,11 +197,11 @@
     "work": "藥師少女的獨語",
     "work_ja": "薬屋のひとりごと",
     "character": "貓貓",
-    "episode": "第 4 話",
+    "episode": "第 3 話",
     "mood": "everyday",
     "text": "心情好的人，氣色也會跟著變好。戀愛是一種藥，快樂、被在乎、做喜歡的事也都是。今天替自己配一帖好心情的藥吧：好好睡、好好吃、見想見的人。",
     "source_url": "https://onlymoon316.com/archives/1387",
-    "check": "察覺芙蓉妃變美的原因時"
+    "check": "察覺芙蓉妃變美的原因時；原本標第 4 話，ABEMA TIMES 標題寫「まだ第3話なのに」"
   },
   "2026-11-18": {
     "quote_zh": "我沒有敵人。",
@@ -256,12 +256,12 @@
     "quote_ja": "いつかまた一緒に桜を見ることができると、私も彼も何の迷いもなく、そう思っていた",
     "work": "秒速5公分",
     "work_ja": "秒速5センチメートル",
-    "character": "篠原明里",
+    "character": "遠野貴樹、篠原明里",
     "episode": "",
     "mood": "longing",
     "text": "今天小雪。有些約定，說的時候深信不疑，後來卻走散了。那不是誰的錯，只是日子往不同的方向走。想起那些人時，就在心裡對他們說聲：謝謝你曾經在。",
     "source_url": "https://eiga.com/movie/56096/review/01897373/",
-    "check": "明里的獨白，雪夜田野一幕；節錄"
+    "check": "雪夜田野一幕；原本標明里的獨白，其實是兩人輪流說（貴樹／明里／貴樹），依學習院大學論文與台詞整理站"
   },
   "2026-11-23": {
     "quote_zh": "這可真讓人熱血沸騰啊！",
@@ -321,7 +321,7 @@
     "mood": "friendship",
     "text": "吵架之後，兩個人都在等對方先開口。其實心裡早就不生氣了，只是說不出口。星期五，傳一句「對不起」或「我們和好吧」，比等待更快讓事情過去。",
     "source_url": "https://meigenmeikan.com/nakanaorishitaindarou-omoittsutenohakotobanishinaitotsutawaranaindaze/",
-    "check": "原作第 4 集第 29 話，對修塔爾克說；動畫第 14 話「若者の特権」"
+    "check": "原作第 4 集第 29 話，對費倫說；動畫第 14 話「若者の特権」"
   },
   "2026-11-28": {
     "quote_zh": "我想要閃閃發光！",
@@ -353,10 +353,10 @@
     "work": "前進吧！登山少女",
     "work_ja": "ヤマノススメ",
     "character": "倉上日向",
-    "episode": "",
+    "episode": "第 1 季 第 8 話",
     "mood": "perseverance",
     "text": "十一月最後一天，今年只剩一個月了。別急著在年底前補完所有事情，登山的人都知道，守住自己的步調，才能走到山頂。慢慢來，比較快。",
     "source_url": "https://animemiru.jp/articles/15847/",
-    "check": "節錄；話數未查到"
+    "check": "節錄；第 1 季第 8 話「高尾山に登ろう！」"
   }
 }
