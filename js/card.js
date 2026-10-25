@@ -3,6 +3,7 @@
 (function (global) {
   const W = 1080, H = 1920;
   const FALLBACK = '"PingFang TC", "Microsoft JhengHei", sans-serif';
+  const SITE_NAME = '空鏡日曆';
   const font = (f, weight, size) => `${weight} ${size}px "${f}", ${FALLBACK}`;
 
   const EMPTY = {
@@ -121,18 +122,6 @@
     ctx.restore();
   }
 
-  // 底部置中的日曆名稱：圖卡被存下或截圖轉傳時，看得出出處
-  function drawSiteName(ctx, p) {
-    ctx.save();
-    ctx.font = font('Noto Sans TC', 400, 24);
-    if ('letterSpacing' in ctx) ctx.letterSpacing = '6px';
-    ctx.fillStyle = colorOf(p, 'tertiary');
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'alphabetic';
-    ctx.fillText('空鏡日曆', W / 2 + 3, 1876);
-    ctx.restore();
-  }
-
   // 台詞區：由下往上堆疊，先量出各段高度，再從 bottom − 總高 開始畫
   function drawQuote(ctx, e, L, p) {
     const q = L.quoteBlock;
@@ -172,10 +161,21 @@
     for (const b of blocks) {
       y += b.gap;
       if (b.divider) {
+        // 分隔線中間嵌日曆名稱：存圖或截圖轉傳時看得出出處。
+        // 放在畫面中段，IG 貼文裁切、限時動態的上下介面都不會蓋到
         ctx.save();
+        ctx.font = font(q.source.font, 400, 22);
+        if ('letterSpacing' in ctx) ctx.letterSpacing = '6px';
+        const nameW = ctx.measureText(SITE_NAME).width;
+        const half = nameW / 2 + 18, seg = q.divider.width / 2;
         ctx.globalAlpha = q.divider.opacity;
         ctx.fillStyle = colorOf(p);
-        ctx.fillRect(cx - q.divider.width / 2, y, q.divider.width, q.divider.height);
+        ctx.fillRect(cx - half - seg, y, seg, q.divider.height);
+        ctx.fillRect(cx + half, y, seg, q.divider.height);
+        ctx.globalAlpha = 1;
+        ctx.fillStyle = colorOf(p, 'tertiary');
+        ctx.textAlign = 'center';
+        ctx.fillText(SITE_NAME, cx + 3, y + q.divider.height / 2 + 1);
         ctx.restore();
         y += b.h;
         continue;
@@ -209,7 +209,6 @@
     drawDate(ctx, info, L, prep.palette);
     drawMark(ctx, L, prep.palette);
     drawQuote(ctx, e, L, prep.palette);
-    drawSiteName(ctx, prep.palette);
     ctx.restore();
   }
 
