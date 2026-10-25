@@ -30,7 +30,7 @@
   function fontsFor(entry, info, tokens) {
     const L = tokens.layout;
     const { line1, line2 } = dateLines(info);
-    const zh = [entry.quote_zh, entry.text, sourceLine(entry), line1, line2, '「」0123456789'].join('');
+    const zh = [entry.quote_zh, entry.text, sourceLine(entry), line1, line2, '「」0123456789空鏡日曆'].join('');
     const ja = (entry.quote_ja || '') + L.mark.text + '「」';
     const q = L.quoteBlock;
     return [
@@ -121,6 +121,18 @@
     ctx.restore();
   }
 
+  // 底部置中的日曆名稱：圖卡被存下或截圖轉傳時，看得出出處
+  function drawSiteName(ctx, p) {
+    ctx.save();
+    ctx.font = font('Noto Sans TC', 400, 24);
+    if ('letterSpacing' in ctx) ctx.letterSpacing = '6px';
+    ctx.fillStyle = colorOf(p, 'tertiary');
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'alphabetic';
+    ctx.fillText('空鏡日曆', W / 2 + 3, 1876);
+    ctx.restore();
+  }
+
   // 台詞區：由下往上堆疊，先量出各段高度，再從 bottom − 總高 開始畫
   function drawQuote(ctx, e, L, p) {
     const q = L.quoteBlock;
@@ -197,6 +209,7 @@
     drawDate(ctx, info, L, prep.palette);
     drawMark(ctx, L, prep.palette);
     drawQuote(ctx, e, L, prep.palette);
+    drawSiteName(ctx, prep.palette);
     ctx.restore();
   }
 
