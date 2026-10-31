@@ -10,10 +10,19 @@
   const months = {}; // 'YYYY-MM' → 該月內容（載入中為 Promise）
   let samples = null;
   let current = startDate();
+  let retry = false; // 這一天的內容（或推算場景用的前幾個月）因為斷線沒載到
+  let offline = false; // 這一天本身的內容沒載到
+  // 斷線時圖卡上顯示的內容（不是「還在路上」，免得以為這天沒有台詞）
+  const OFFLINE = { ...Card.EMPTY, quote_zh: '連線中斷，這一天的台詞還沒載入。', text: '網路恢復後，會自動再試一次。' };
+  const shown = () => entryOf(current) || (offline ? OFFLINE : null);
 
   function startDate() {
     const m = /^#(\d{4})(\d{2})(\d{2})$/.exec(location.hash);
-    if (m) return new Date(+m[1], +m[2] - 1, +m[3]);
+    if (m) {
+      // 讀完就把 #日期 拿掉：之後重新整理、或過幾天分頁被瀏覽器重新載入，都會回到今天
+      history.replaceState(null, '', location.pathname + location.search);
+      return new Date(+m[1], +m[2] - 1, +m[3]);
+    }
     const now = new Date();
     return new Date(now.getFullYear(), now.getMonth(), now.getDate());
   }
@@ -29,7 +38,14 @@
   function loadMonth(d) {
     const k = monthOf(d);
     if (!months[k]) {
-      months[k] = loadJSON(`data/quotes/${k}.json`).then((data) => (months[k] = data || {}));
+      // 只有「沒有這個月的檔案」（收錄範圍外）才當成空的；斷線抓不到就不要記住，下次換日或連上網路時再試
+      months[k] = fetch(`data/quotes/${k}.json`)
+        .then((r) => {
+          if (r.ok) return r.json();
+          if (r.status === 404) return {};
+          throw new Error(`data/quotes/${k}.json ${r.status}`);
+        })
+        .then((data) => (months[k] = data), (e) => { delete months[k]; throw e; });
     }
     return Promise.resolve(months[k]);
   }
@@ -56,7 +72,7 @@
 
   function draw(ctx, scale) {
     ctx.setTransform(scale, 0, 0, scale, 0, 0);
-    Card.render(ctx, entryOf(current), LunarInfo.info(current), scene);
+    Card.render(ctx, shown(), LunarInfo.info(current), scene);
   }
 
   function layout() {
@@ -73,22 +89,27 @@
   let renderToken = 0;
   async function render() {
     const token = ++renderToken;
-    await loadMonth(current);
+    let failed = false;
+    try { await loadMonth(current); } catch (e) { failed = true; }
     if (token !== renderToken) return;
+    offline = retry = failed;
     const info = LunarInfo.info(current);
-    const entry = entryOf(current) || Card.EMPTY;
+    const entry = shown() || Card.EMPTY;
     $('date-label').textContent = `${info.year}/${pad(info.month)}/${pad(info.day)}`;
     $('date-input').value = `${info.year}-${pad(info.month)}-${pad(info.day)}`;
     const src = Card.sourceLine(entry);
     $('card-text').textContent = `${info.year}年${info.month}月${info.day}日 ${info.week}，農曆${info.lunarDate}。`
       + `「${entry.quote_zh}」${src ? '── ' + src + '。' : ''}${entry.text}`;
 
-    let prepared = null;
+    let prepared = null, fontsReady = null, fontsLate = true;
     try {
-      prepared = await Scene.prepare(info, entry.mood || 'everyday', force, await recentScenes(current));
+      // 推算場景要用到前幾個月的內容；那幾個月斷線抓不到時先不避開重複，連上網路後再重畫
+      const recent = await recentScenes(current).catch(() => { retry = true; return []; });
+      prepared = await Scene.prepare(info, entry.mood || 'everyday', force, recent);
       // 等這張卡用到的字形載入後再畫，避免先以後備字型閃一下
+      fontsReady = Promise.all(Card.fontsFor(entry, info, prepared.tokens));
       await Promise.race([
-        Promise.all(Card.fontsFor(entry, info, prepared.tokens)),
+        fontsReady.then(() => { fontsLate = false; }),
         new Promise((r) => setTimeout(r, 2500)),
       ]);
     } catch (e) {
@@ -100,6 +121,8 @@
     canvas.classList.remove('fading');
     document.documentElement.dataset.rendered = keyOf(current); // 給 tools/build_share.py 判斷這一天畫完了
     document.documentElement.dataset.time = scene.time;
+    // 字型超過 2.5 秒才到的話，剛才是用後備字型畫的；字型到了再重畫一次
+    if (fontsLate && fontsReady) fontsReady.then(() => { if (token === renderToken) draw(canvas.getContext('2d'), canvas.width / Card.W); }, () => {});
   }
 
   function go(days) {
@@ -119,6 +142,13 @@
     const [y, m, d] = e.target.value.split('-').map(Number);
     if (y && m && d) { current = new Date(y, m - 1, d); render(); }
   });
+  // 電腦版：點日期直接打開日曆（Chrome 點到輸入框本身只會選到年月日其中一格，不會跳出日曆）
+  $('date-input').addEventListener('click', (e) => {
+    if (!matchMedia('(pointer: fine)').matches || !e.target.showPicker) return;
+    try { e.target.showPicker(); } catch (err) { /* 不支援時維持原本行為 */ }
+  });
+  // 剛才斷線沒載到內容的話，連上網路就自動再畫一次
+  window.addEventListener('online', () => { if (retry) render(); });
   window.addEventListener('hashchange', () => { current = startDate(); render(); });
   document.addEventListener('keydown', (e) => {
     if (!$('sheet').hidden || !$('about-sheet').hidden || !$('remind-sheet').hidden || e.target.tagName === 'INPUT') return;
@@ -167,7 +197,12 @@
   // 關於與授權
   const aboutSheet = $('about-sheet');
   const closeAbout = () => { aboutSheet.hidden = true; $('about').focus(); };
-  $('about').addEventListener('click', () => { aboutSheet.hidden = false; $('about-close').focus(); });
+  $('about').addEventListener('click', () => {
+    aboutSheet.hidden = false;
+    // 焦點放在最下面的「關閉」，但畫面停在最上面，標題和收錄範圍才看得到
+    aboutSheet.querySelector('.sheet-inner').scrollTop = 0;
+    $('about-close').focus({ preventScroll: true });
+  });
   $('about-close').addEventListener('click', closeAbout);
   aboutSheet.addEventListener('click', (e) => { if (e.target === aboutSheet) closeAbout(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !aboutSheet.hidden) closeAbout(); });
