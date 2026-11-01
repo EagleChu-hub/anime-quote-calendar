@@ -28,3 +28,4 @@
 - 內容：`data/quotes/YYYY-MM.json`，由 `tools/draft_YYYY_MM.py` 產生
 - 校對：`python tools/validate.py`
 - 分享頁與預覽圖：`python tools/build_share.py`（改過語錄後要重跑，再用 `--check` 確認）。產生 `d/YYYYMMDD.html` 與 `og/YYYYMMDD.jpg`，讓 Threads、LINE 顯示當天的縮圖
+- 字型：`python tools/build_fonts.py` 只把網站用得到的字做成 `fonts/*.woff2`（約 1～2 MB，涵蓋全部日子），改過語錄、節日或畫面文字後要重跑，再用 `--check` 確認沒有缺字。原始字型放在 `..\字型原檔\`（來自 github.com/google/fonts，SIL OFL），需要 `pip install fonttools brotli` 與 node。
