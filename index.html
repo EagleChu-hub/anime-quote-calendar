@@ -21,13 +21,15 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="空鏡日曆">
 <!-- FONTS:START 由 tools/build_fonts.py 產生 -->
-<link rel="preload" href="fonts/notosans-200-500.c61977c5f1.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/zenkaku-400.1bd0f1d20a.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/notosans-200-600.ccda197829.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/zenkaku-400.57d11a9022.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/fonts.css">
 <!-- FONTS:END -->
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<!-- 量「工具列展開時」的穩定可視高度（100svh），圖卡大小以它為準，捲動時網址列收合不會讓圖卡跳動 -->
+<div id="vh-probe" aria-hidden="true"></div>
 <main class="app">
   <div class="content">
     <div class="stage" id="stage">

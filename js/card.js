@@ -211,7 +211,12 @@
     ctx.save();
     ctx.shadowColor = 'rgba(4, 9, 16, 0.55)';
     ctx.shadowBlur = 14 * ctx.getTransform().a; // shadowBlur 不受縮放影響，要自己換算成螢幕像素
+    // 日期區的影子再深一點：晴天、雲層正好在左上角時，年月星期才不會糊在背景裡
+    ctx.save();
+    ctx.shadowColor = 'rgba(4, 9, 16, 0.7)';
+    ctx.shadowBlur = 20 * ctx.getTransform().a;
     drawDate(ctx, info, L, prep.palette);
+    ctx.restore();
     drawMark(ctx, L, prep.palette);
     drawQuote(ctx, e, L, prep.palette, full);
     ctx.restore();

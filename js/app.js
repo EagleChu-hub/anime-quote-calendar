@@ -92,18 +92,20 @@
     $('reading').classList.remove('fading');
   }
 
-  // 圖卡大小：手機上留一點高度給下方的短文（露出開頭兩行，讓人知道往下還有字）；寬螢幕時短文在右邊
+  // 圖卡大小：手機上留一點高度給下方的短文（露出開頭兩行，讓人知道往下還有字）；寬螢幕時短文在右邊。
+  // 高度用 #vh-probe（100svh：網址列、工具列展開時的高度）而不是 innerHeight：
+  // 手機往下捲時工具列收起來，innerHeight 會變大，用它算的話圖卡會跟著忽大忽小
   const PEEK = 88, SIDE = 360 + 48;
   let sized = null;
   function layout() {
     const wide = matchMedia('(min-width: 820px)').matches;
     const vw = document.documentElement.clientWidth - 32;
-    const availH = window.innerHeight - $('dock').offsetHeight - 16 - (wide ? 24 : PEEK);
+    const availH = $('vh-probe').offsetHeight - $('dock').offsetHeight - 16 - (wide ? 24 : PEEK);
     const availW = wide ? vw - SIDE : vw;
     // 寬度取整數像素，canvas 才不會被拉伸、底邊多出一條細線
     const w = Math.floor(Math.max(200, Math.min(availH, availW * 16 / 9)) * 9 / 16);
     const h = w * 16 / 9;
-    sized = { vw, dock: $('dock').offsetHeight, vh: window.innerHeight };
+    sized = { vw, dock: $('dock').offsetHeight, vh: $('vh-probe').offsetHeight };
     canvas.style.width = w + 'px';
     canvas.style.height = h + 'px';
     const dpr = Math.min(window.devicePixelRatio || 1, 3);
@@ -233,15 +235,18 @@
   aboutSheet.addEventListener('click', (e) => { if (e.target === aboutSheet) closeAbout(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !aboutSheet.hidden) closeAbout(); });
 
+  // 只有寬度改變（轉向、調整視窗）或按鈕列高度改變（提醒提示列出現、關閉）才需要重排；
+  // 手機上只有高度變（捲動時網址列收合）一律不動，圖卡才不會跳；電腦版拉高視窗時照常放大
+  function relayoutIfNeeded() {
+    const vw = document.documentElement.clientWidth - 32;
+    const sameH = matchMedia('(pointer: coarse)').matches || sized?.vh === $('vh-probe').offsetHeight;
+    if (sized && sized.vw === vw && sized.dock === $('dock').offsetHeight && sameH) return;
+    layout(); render();
+  }
   let resizeTimer;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-      // 手機往下捲時網址列收合也會觸發 resize：寬度、按鈕列都沒變、高度只差一點的話不要重排，免得圖卡忽大忽小
-      const vw = document.documentElement.clientWidth - 32;
-      if (sized && sized.vw === vw && sized.dock === $('dock').offsetHeight && Math.abs(sized.vh - window.innerHeight) < 120) return;
-      layout(); render();
-    }, 120);
+    resizeTimer = setTimeout(relayoutIfNeeded, 120);
   });
 
   // 跨日時自動換到新的一天（App 一直開著的情況）
@@ -264,6 +269,9 @@
     const f = await loadJSON('data/festivals-tw.json');
     if (f) LunarInfo.setFestivals(f);
     if (params.has('sample')) samples = await loadJSON('tools/sample_quotes.json');
+    // 一開始量按鈕列時字型可能還沒到，高度差一兩 px；字型到齊後先校正一次，
+    // 免得等到使用者第一次捲動（網址列收合觸發 resize）才重排，看起來像圖卡跳了一下
+    document.fonts.ready.then(relayoutIfNeeded);
     await render();
   })();
 

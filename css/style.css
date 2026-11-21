@@ -14,6 +14,9 @@
 
 [hidden] { display: none !important; }
 html, body { min-height: 100%; }
+/* 預留捲軸位置：內容長短改變、捲軸出現或消失時，版面寬度不變（電腦版） */
+html { scrollbar-gutter: stable; }
+#vh-probe { position: fixed; top: 0; left: 0; width: 0; height: 100vh; height: 100svh; visibility: hidden; pointer-events: none; }
 body {
   margin: 0;
   background: var(--page);
