@@ -37,9 +37,8 @@ WEEK = '一二三四五六日'
 
 
 def source_line(e):
-    """跟 js/card.js 的 sourceLine 一樣：《作品》角色・話數"""
-    parts = f"《{e['work']}》{e.get('character', '')}"
-    return f"{parts}・{e['episode']}" if e.get('episode') else parts
+    """跟 js/card.js 的 sourceLine 一樣：《作品》角色（不寫話數）"""
+    return f"《{e['work']}》{e.get('character', '')}"
 
 
 def quote_of(e):

@@ -14,10 +14,10 @@
     mood: 'everyday',
   };
 
+  // 出處只寫作品與角色，不寫話數：圖卡上字小，越短越好讀（話數仍留在資料的 episode 欄）
   function sourceLine(e) {
     if (!e.work) return '';
-    const parts = [`《${e.work}》`, e.character].filter(Boolean).join('');
-    return e.episode ? `${parts}・${e.episode}` : parts;
+    return [`《${e.work}》`, e.character].filter(Boolean).join('');
   }
 
   function dateLines(info) {
@@ -145,7 +145,11 @@
     }
     const src = sourceLine(e);
     if (src) {
-      blocks.push({ lines: [src], f: font(q.source.font, q.source.weight, q.source.size), lh: q.source.lineHeight, gap: q.source.gapTop, color: colorOf(p, q.source.colorKey), align: 'center' });
+      // 出處只有一行：太長（例如作品名含英文副標）時縮字級，不超出文字區
+      let ss = q.source.size;
+      ctx.font = font(q.source.font, q.source.weight, ss);
+      while (ss > 24 && ctx.measureText(src).width > maxW) ctx.font = font(q.source.font, q.source.weight, --ss);
+      blocks.push({ lines: [src], f: ctx.font, lh: q.source.lineHeight, gap: q.source.gapTop, color: colorOf(p, q.source.colorKey), align: 'center' });
     }
     blocks.push({ divider: true, gap: q.divider.gapTop, h: q.divider.height + q.divider.gapBottom });
     ctx.font = font(q.essay.font, q.essay.weight, q.essay.size);
