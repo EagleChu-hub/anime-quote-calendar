@@ -78,32 +78,20 @@
 
   let scene = null; // 目前這一天的場景（Scene.prepare 的結果）
 
-  // full：true＝分享圖（完整版面）；false＝網頁上那張（只有日期和中文台詞，其餘在圖卡下方用網頁文字顯示）
-  function draw(ctx, scale, full = false) {
+  function draw(ctx, scale) {
     ctx.setTransform(scale, 0, 0, scale, 0, 0);
-    Card.render(ctx, shown(), LunarInfo.info(current), scene, full);
+    Card.render(ctx, shown(), LunarInfo.info(current), scene);
   }
 
-  // 圖卡下方的日文原句、出處、短文
-  function fillReading(e) {
-    $('read-ja').textContent = e.quote_ja ? Card.quoted(e.quote_ja) : '';
-    $('read-src').textContent = Card.sourceLine(e);
-    $('read-essay').textContent = e.text || '';
-    $('reading').classList.remove('fading');
-  }
-
-  // 圖卡大小：手機上留一點高度給下方的短文（露出開頭兩行，讓人知道往下還有字）；寬螢幕時短文在右邊。
+  // 圖卡大小：整張圖卡（含短文）一頁看完，填滿按鈕列以上的空間。
   // 高度用 #vh-probe（100svh：網址列、工具列展開時的高度）而不是 innerHeight：
-  // 手機往下捲時工具列收起來，innerHeight 會變大，用它算的話圖卡會跟著忽大忽小
-  const PEEK = 88, SIDE = 360 + 48;
+  // 手機上網址列收合時 innerHeight 會變，用它算的話圖卡會跟著忽大忽小
   let sized = null;
   function layout() {
-    const wide = matchMedia('(min-width: 820px)').matches;
     const vw = document.documentElement.clientWidth - 32;
-    const availH = $('vh-probe').offsetHeight - $('dock').offsetHeight - 16 - (wide ? 24 : PEEK);
-    const availW = wide ? vw - SIDE : vw;
+    const availH = $('vh-probe').offsetHeight - $('dock').offsetHeight - 16 - 12;
     // 寬度取整數像素，canvas 才不會被拉伸、底邊多出一條細線
-    const w = Math.floor(Math.max(200, Math.min(availH, availW * 16 / 9)) * 9 / 16);
+    const w = Math.floor(Math.max(200, Math.min(availH, vw * 16 / 9)) * 9 / 16);
     const h = w * 16 / 9;
     sized = { vw, dock: $('dock').offsetHeight, vh: $('vh-probe').offsetHeight };
     canvas.style.width = w + 'px';
@@ -124,8 +112,9 @@
     const entry = shown() || Card.EMPTY;
     $('date-label').textContent = `${info.year}/${pad(info.month)}/${pad(info.day)}`;
     $('date-input').value = `${info.year}-${pad(info.month)}-${pad(info.day)}`;
-    // 圖卡的替代文字只放日期和台詞；原句、出處、短文在下方本來就是文字
-    $('card-text').textContent = `${info.year}年${info.month}月${info.day}日 ${info.week}，農曆${info.lunarDate}。「${entry.quote_zh}」`;
+    const src = Card.sourceLine(entry);
+    $('card-text').textContent = `${info.year}年${info.month}月${info.day}日 ${info.week}，農曆${info.lunarDate}。`
+      + `「${entry.quote_zh}」${src ? '── ' + src + '。' : ''}${entry.text}`;
 
     let prepared = null, fontsReady = null, fontsLate = true;
     try {
@@ -144,7 +133,6 @@
     if (!prepared || token !== renderToken) return;
     scene = prepared;
     draw(canvas.getContext('2d'), canvas.width / Card.W);
-    fillReading(entry);
     canvas.classList.remove('fading');
     document.documentElement.dataset.rendered = keyOf(current); // 給 tools/build_share.py 判斷這一天畫完了
     document.documentElement.dataset.time = scene.time;
@@ -155,7 +143,6 @@
   function go(days) {
     current = new Date(current.getFullYear(), current.getMonth(), current.getDate() + days);
     canvas.classList.add('fading');
-    $('reading').classList.add('fading');
     render();
   }
 
@@ -201,7 +188,7 @@
     btn.disabled = true;
     btn.textContent = '產生中…';
     try {
-      const blob = await CardExport.makeImage((ctx) => draw(ctx, 1, true));
+      const blob = await CardExport.makeImage((ctx) => draw(ctx, 1));
       const i = LunarInfo.info(current);
       CardExport.openSheet(blob, `空鏡日曆-${i.year}${pad(i.month)}${pad(i.day)}`, shareInfo(i));
     } finally {
