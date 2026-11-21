@@ -21,19 +21,28 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="空鏡日曆">
 <!-- FONTS:START 由 tools/build_fonts.py 產生 -->
-<link rel="preload" href="fonts/notosans-200-500.535ba3adbe.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/zenkaku-400.b36ce50777.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/notosans-200-500.c61977c5f1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/zenkaku-400.1bd0f1d20a.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/fonts.css">
 <!-- FONTS:END -->
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <main class="app">
-  <div class="stage" id="stage">
-    <canvas id="card" class="card" role="img" aria-labelledby="card-text"></canvas>
+  <div class="content">
+    <div class="stage" id="stage">
+      <canvas id="card" class="card" role="img" aria-labelledby="card-text"></canvas>
+    </div>
+    <div id="card-text" class="sr-only" aria-live="polite"></div>
+    <!-- 日文原句、出處、短文：圖卡縮在手機上字太小，改用網頁文字顯示（分享圖上仍然有） -->
+    <section class="reading" id="reading" aria-label="原句與短文">
+      <p class="read-ja" id="read-ja" lang="ja"></p>
+      <p class="read-src" id="read-src"></p>
+      <p class="read-essay" id="read-essay"></p>
+    </section>
   </div>
-  <div id="card-text" class="sr-only" aria-live="polite"></div>
 
+  <div class="dock" id="dock">
   <nav class="bar" aria-label="日期">
     <button type="button" id="prev" class="btn icon" aria-label="前一天">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
@@ -57,6 +66,7 @@
   <div class="remind-hint" id="remind-hint" hidden>
     <button type="button" id="remind-hint-open" class="remind-hint-open"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>想每天收到這一頁？開啟每日提醒</button>
     <button type="button" id="remind-hint-close" class="remind-hint-close" aria-label="不再提示"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
   </div>
 </main>
 

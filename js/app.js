@@ -56,7 +56,15 @@
   const AVOID = 5;
   const sceneMemo = [];
   const dayNo = (d) => Math.round((Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) - Date.UTC(2026, 8, 25)) / 86400000);
-  async function recentScenes(d) {
+  // 一次只讓一個推算在跑：頁面還在載入時就換日（或連按下一天），兩個推算同時往 sceneMemo 塞資料會亂掉，
+  // 同一天就會畫出不同的場景（跟分享圖對不起來）
+  let sceneQueue = Promise.resolve();
+  function recentScenes(d) {
+    const run = sceneQueue.then(() => computeRecent(d));
+    sceneQueue = run.catch(() => {});
+    return run;
+  }
+  async function computeRecent(d) {
     const target = dayNo(d);
     for (let i = sceneMemo.length; i < target; i++) {
       const di = new Date(EPOCH.getFullYear(), EPOCH.getMonth(), EPOCH.getDate() + i);
@@ -70,15 +78,32 @@
 
   let scene = null; // 目前這一天的場景（Scene.prepare 的結果）
 
-  function draw(ctx, scale) {
+  // full：true＝分享圖（完整版面）；false＝網頁上那張（只有日期和中文台詞，其餘在圖卡下方用網頁文字顯示）
+  function draw(ctx, scale, full = false) {
     ctx.setTransform(scale, 0, 0, scale, 0, 0);
-    Card.render(ctx, shown(), LunarInfo.info(current), scene);
+    Card.render(ctx, shown(), LunarInfo.info(current), scene, full);
   }
 
+  // 圖卡下方的日文原句、出處、短文
+  function fillReading(e) {
+    $('read-ja').textContent = e.quote_ja ? Card.quoted(e.quote_ja) : '';
+    $('read-src').textContent = Card.sourceLine(e);
+    $('read-essay').textContent = e.text || '';
+    $('reading').classList.remove('fading');
+  }
+
+  // 圖卡大小：手機上留一點高度給下方的短文（露出開頭兩行，讓人知道往下還有字）；寬螢幕時短文在右邊
+  const PEEK = 88, SIDE = 360 + 48;
+  let sized = null;
   function layout() {
-    const r = stage.getBoundingClientRect();
-    const h = Math.max(200, Math.min(r.height, r.width * 16 / 9));
-    const w = h * 9 / 16;
+    const wide = matchMedia('(min-width: 820px)').matches;
+    const vw = document.documentElement.clientWidth - 32;
+    const availH = window.innerHeight - $('dock').offsetHeight - 16 - (wide ? 24 : PEEK);
+    const availW = wide ? vw - SIDE : vw;
+    // 寬度取整數像素，canvas 才不會被拉伸、底邊多出一條細線
+    const w = Math.floor(Math.max(200, Math.min(availH, availW * 16 / 9)) * 9 / 16);
+    const h = w * 16 / 9;
+    sized = { vw, dock: $('dock').offsetHeight, vh: window.innerHeight };
     canvas.style.width = w + 'px';
     canvas.style.height = h + 'px';
     const dpr = Math.min(window.devicePixelRatio || 1, 3);
@@ -97,9 +122,8 @@
     const entry = shown() || Card.EMPTY;
     $('date-label').textContent = `${info.year}/${pad(info.month)}/${pad(info.day)}`;
     $('date-input').value = `${info.year}-${pad(info.month)}-${pad(info.day)}`;
-    const src = Card.sourceLine(entry);
-    $('card-text').textContent = `${info.year}年${info.month}月${info.day}日 ${info.week}，農曆${info.lunarDate}。`
-      + `「${entry.quote_zh}」${src ? '── ' + src + '。' : ''}${entry.text}`;
+    // 圖卡的替代文字只放日期和台詞；原句、出處、短文在下方本來就是文字
+    $('card-text').textContent = `${info.year}年${info.month}月${info.day}日 ${info.week}，農曆${info.lunarDate}。「${entry.quote_zh}」`;
 
     let prepared = null, fontsReady = null, fontsLate = true;
     try {
@@ -118,6 +142,7 @@
     if (!prepared || token !== renderToken) return;
     scene = prepared;
     draw(canvas.getContext('2d'), canvas.width / Card.W);
+    fillReading(entry);
     canvas.classList.remove('fading');
     document.documentElement.dataset.rendered = keyOf(current); // 給 tools/build_share.py 判斷這一天畫完了
     document.documentElement.dataset.time = scene.time;
@@ -128,6 +153,7 @@
   function go(days) {
     current = new Date(current.getFullYear(), current.getMonth(), current.getDate() + days);
     canvas.classList.add('fading');
+    $('reading').classList.add('fading');
     render();
   }
 
@@ -173,7 +199,7 @@
     btn.disabled = true;
     btn.textContent = '產生中…';
     try {
-      const blob = await CardExport.makeImage((ctx) => draw(ctx, 1));
+      const blob = await CardExport.makeImage((ctx) => draw(ctx, 1, true));
       const i = LunarInfo.info(current);
       CardExport.openSheet(blob, `空鏡日曆-${i.year}${pad(i.month)}${pad(i.day)}`, shareInfo(i));
     } finally {
@@ -210,7 +236,12 @@
   let resizeTimer;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => { layout(); render(); }, 120);
+    resizeTimer = setTimeout(() => {
+      // 手機往下捲時網址列收合也會觸發 resize：寬度、按鈕列都沒變、高度只差一點的話不要重排，免得圖卡忽大忽小
+      const vw = document.documentElement.clientWidth - 32;
+      if (sized && sized.vw === vw && sized.dock === $('dock').offsetHeight && Math.abs(sized.vh - window.innerHeight) < 120) return;
+      layout(); render();
+    }, 120);
   });
 
   // 跨日時自動換到新的一天（App 一直開著的情況）

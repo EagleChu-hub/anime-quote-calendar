@@ -123,7 +123,8 @@
   }
 
   // 台詞區：由下往上堆疊，先量出各段高度，再從 bottom − 總高 開始畫
-  function drawQuote(ctx, e, L, p) {
+  // full=false（網頁上顯示的那張）只畫中文台詞；日文、出處、短文改在圖卡下方用網頁文字顯示，字才夠大
+  function drawQuote(ctx, e, L, p, full) {
     const q = L.quoteBlock;
     const cx = W / 2, maxW = q.maxWidth, left = cx - maxW / 2;
     const blocks = [];
@@ -139,21 +140,24 @@
     }
     blocks.push({ lines, f: font(q.quote.font, q.quote.weight, qs), lh: ql, gap: 0, color: colorOf(p), align: 'center' });
 
-    if (e.quote_ja) {
+    if (full && e.quote_ja) {
       ctx.font = font(q.jp.font, q.jp.weight, q.jp.size);
       blocks.push({ lines: balance(ctx, quoted(e.quote_ja), maxW, q.kinsoku), f: ctx.font, lh: q.jp.lineHeight, gap: q.jp.gapTop, color: colorOf(p, q.jp.colorKey), align: 'center' });
     }
     const src = sourceLine(e);
-    if (src) {
+    if (full && src) {
       blocks.push({ lines: [src], f: font(q.source.font, q.source.weight, q.source.size), lh: q.source.lineHeight, gap: q.source.gapTop, color: colorOf(p, q.source.colorKey), align: 'center' });
     }
-    blocks.push({ divider: true, gap: q.divider.gapTop, h: q.divider.height + q.divider.gapBottom });
-    ctx.font = font(q.essay.font, q.essay.weight, q.essay.size);
-    let essay = wrap(ctx, e.text, maxW, q.kinsoku);
-    // 最後一行太短（例如只剩「點。」）時改用平衡換行，避免孤字
-    if (essay.length > 1 && ctx.measureText(essay[essay.length - 1]).width < maxW / 3) essay = balance(ctx, e.text, maxW, q.kinsoku);
-    essay = essay.slice(0, q.essay.maxLines);
-    blocks.push({ lines: essay, f: ctx.font, lh: q.essay.lineHeight, gap: 0, color: colorOf(p), alpha: q.essay.opacity, align: 'left' });
+    if (full) {
+      blocks.push({ divider: true, gap: q.divider.gapTop, h: q.divider.height + q.divider.gapBottom });
+      ctx.font = font(q.essay.font, q.essay.weight, q.essay.size);
+      let essay = wrap(ctx, e.text, maxW, q.kinsoku);
+      // 最後一行太短（例如只剩「點。」）時改用平衡換行，避免孤字
+      if (essay.length > 1 && ctx.measureText(essay[essay.length - 1]).width < maxW / 3) essay = balance(ctx, e.text, maxW, q.kinsoku);
+      if (essay.length > q.essay.maxLines) console.warn('短文超過', q.essay.maxLines, '行，後面被截掉：', e.text);
+      essay = essay.slice(0, q.essay.maxLines);
+      blocks.push({ lines: essay, f: ctx.font, lh: q.essay.lineHeight, gap: 0, color: colorOf(p), alpha: q.essay.opacity, align: 'left' });
+    }
 
     const total = blocks.reduce((s, b) => s + b.gap + (b.divider ? b.h : b.lines.length * b.lh), 0);
     let y = q.bottom - total;
@@ -197,8 +201,9 @@
    * @param entry 當天內容（沒有時用 EMPTY）
    * @param info  LunarInfo.info()
    * @param prep  Scene.prepare() 的結果
+   * @param full  true＝分享圖（完整版面）；false＝網頁畫面（只有日期和中文台詞）
    */
-  function render(ctx, entry, info, prep) {
+  function render(ctx, entry, info, prep, full = true) {
     const e = entry || EMPTY;
     const L = prep.tokens.layout;
     Scene.draw(ctx, prep);
@@ -208,9 +213,9 @@
     ctx.shadowBlur = 14 * ctx.getTransform().a; // shadowBlur 不受縮放影響，要自己換算成螢幕像素
     drawDate(ctx, info, L, prep.palette);
     drawMark(ctx, L, prep.palette);
-    drawQuote(ctx, e, L, prep.palette);
+    drawQuote(ctx, e, L, prep.palette, full);
     ctx.restore();
   }
 
-  global.Card = { W, H, render, fontsFor, sourceLine, EMPTY };
+  global.Card = { W, H, render, fontsFor, sourceLine, quoted, EMPTY };
 })(window);
