@@ -3,6 +3,7 @@
 
   d/YYYYMMDD.html   靜態分享頁：帶這一天的 og 標籤，打開後自動跳回日曆的 #YYYYMMDD
   og/YYYYMMDD.jpg   1200×630 預覽圖：左邊是日期與句子，右邊是這一天的圖卡
+  story/YYYYMMDD.jpg 1080×1920 整張圖卡：每天自動發 IG 限動、Threads 用（社群發文 Worker 抓這個網址）
 
 為什麼要這樣做：Threads、LINE 抓預覽圖時不會執行網頁程式，也收不到網址 # 後面的日期，
 所以只看 index.html 的話，每天都會是同一張圖。
@@ -79,6 +80,13 @@ def wrap(draw, text, font, width):
     if cur:
         lines.append(cur)
     return lines
+
+
+def story_jpg(card_png):
+    """整張圖卡轉 JPEG：IG 限動只收 JPEG；品質 80 約 220 KB"""
+    buf = io.BytesIO()
+    Image.open(io.BytesIO(card_png)).convert('RGB').save(buf, 'JPEG', quality=80, optimize=True, progressive=True)
+    return buf.getvalue()
 
 
 def compose(card_png, key, e):
@@ -165,6 +173,11 @@ def check(entries):
             problems.append(f'{key} 缺預覽圖 og/{y}.jpg')
         elif Image.open(o).size != (1200, 630):
             problems.append(f'{key} 預覽圖尺寸不是 1200×630')
+        s = ROOT / f'story/{y}.jpg'
+        if not s.exists():
+            problems.append(f'{key} 缺限動圖 story/{y}.jpg')
+        elif Image.open(s).size != (1080, 1920):
+            problems.append(f'{key} 限動圖尺寸不是 1080×1920')
     extra = {f.stem for f in (ROOT / 'd').glob('*.html')} - {ymd(k) for k in entries}
     for y in sorted(extra):
         problems.append(f'd/{y}.html 沒有對應的語錄（多出來的舊檔）')
@@ -209,10 +222,12 @@ def main():
     keys = [k for k in entries if not args or any(k.startswith(a) for a in args)]
     (ROOT / 'd').mkdir(exist_ok=True)
     (ROOT / 'og').mkdir(exist_ok=True)
+    (ROOT / 'story').mkdir(exist_ok=True)
     t0 = time.time()
     for i, (key, png) in enumerate(render_cards(keys), 1):
         y = ymd(key)
         (ROOT / f'og/{y}.jpg').write_bytes(compose(png, key, entries[key]))
+        (ROOT / f'story/{y}.jpg').write_bytes(story_jpg(png))
         (ROOT / f'd/{y}.html').write_text(page(key, entries[key]), encoding='utf-8', newline='\n')
         if i % 30 == 0 or i == len(keys):
             print(f'{i}/{len(keys)}  {key}  {time.time() - t0:.0f} 秒', flush=True)
